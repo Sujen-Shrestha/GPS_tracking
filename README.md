@@ -1,2 +1,1 @@
-# GPS_tracking
-GPS tacking 
+# tracking_system

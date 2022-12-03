@@ -1,0 +1,40 @@
+@media (max-width: 63.9375em) {
+  .hide-for-mobile {
+    display: none;
+  }
+  .main_hero_body{
+    display: flex;
+  }
+  .about_bodymain{
+    display: block;
+  }
+  .adminoption{
+    display: block;
+  }
+  
+}
+
+@media (min-width: 64em) {
+  .hide-for-desktop {
+    display: none;
+  }
+}
+
+@media (max-width:500px) {
+  .footer-menu ul{
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 800px) {
+  .adminoption {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 45rem) {
+  .hero_image img{
+    width: 25rem;
+  }
+}
