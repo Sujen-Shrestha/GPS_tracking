@@ -19,7 +19,7 @@
 
         <a href="#">About</a>
 
-        <a href="../register.php">Get involved</a>
+        <a href="registerpage.php">Get involved</a>
         
         <a href="../login.php">Live Location</a>
         

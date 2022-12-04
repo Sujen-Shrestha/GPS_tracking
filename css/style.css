@@ -468,6 +468,25 @@ form.form1 {
   padding-top: 2rem;
 }
 
+.co-input{
+  display: flex;
+  justify-content: space-between;
+  padding:0;
+  margin-left: 25%;
+  margin-right: 25%;
+
+}
+
+.co-input .un{
+  margin: .4rem;
+  margin-bottom: .6rem;
+}
+
+.button-wrapper{
+  margin-left: 45%;
+  margin-bottom: 1rem;
+}
+
 .optional_buttons{
   margin-bottom: 50px;
   display: flex;
@@ -754,7 +773,7 @@ main {
   border-bottom: 1px solid #f0f0f0;
 }
 
-.card-header button{
+.card-header button, .small_button{
   background: var(--primary);
   border-radius: 10px;
   color: #fff;
@@ -763,7 +782,7 @@ main {
   border: 2px solid var(--primary);
 }
 
-.card-header button:hover{
+.card-header button:hover,.small_button:hover{
   background: var(--white);
   border-radius: 10px;
   color: var(--primary);
