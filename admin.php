@@ -1,13 +1,4 @@
 <html>
-<?php
-session_start();
-if (isset($_GET['error'])) {
-      if ($_GET['error'] == "invalidadminid") {
-            echo "<font color='red'><p align='center'>Incorrect Credentials</p></font>";
-      }
-}
-?>
-
 <head>
       <!--for reloading-->
       <meta http-equiv="Cache-control" content="no-cache">
@@ -28,6 +19,14 @@ if (isset($_GET['error'])) {
       <!--This will add the upper navigation to the website-->
       <?php include './frontend/menu.php';?>
       <div class="login_body">
+      <?php
+            session_start();
+            if (isset($_GET['error'])) {
+                  if ($_GET['error'] == "invalidadminid") {
+                        echo "<br><br><font color='red'><p align='center'>Incorrect Credentials</p></font>";
+                  }
+            }
+      ?>
                   <form class="form1" action="adminlogin.php" method="post">
                   <p class="sign" align="center">WELCOME ADMIN</p>
                   <input class="un" type="number" class="form-control" id="number" name="number" placeholder="Enter Your Mobile NO" required>
