@@ -32,7 +32,7 @@
                   
                   <!--Database bata tannu parcha yeta-->
                   <select class="un" name="location" id="location" required>
-                        <option value="">Choose your area </option>
+                        <option value="" disabled selected>Choose your area </option>
                         <option value="gongabu">Gongabu</option>
                         <option value="kalanki">Kalanki</option>
                   </select>
@@ -72,8 +72,13 @@
                               "<br>Longitude: " +
                               long;
                   }
-            
             </script>
+
+
+
+
+
+
                   <input class="un" type="number" name="number" id="number" placeholder="Mobile Number" pattern="(\+977)?[9][6-9]\d{8}" required></input>
                   <span class="span_class" align="center"></span>
                   <input class="un" type="file" placeholder="Upload Citizenship" name="file" id="file" required></input>
