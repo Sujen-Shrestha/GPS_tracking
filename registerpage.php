@@ -1,13 +1,5 @@
 <!DOCTYPE html>
 <html>
-<?php
-if (isset($_GET['error'])) {
-      if ($_GET['error'] == "already_exist") {
-            echo "<font color='red'><p align='center'>Number already exist.</p></font>";
-      }
-}
-?>
-
 <head>
           <!--for reloading-->
   <meta http-equiv="Cache-control" content="no-cache">
@@ -27,6 +19,13 @@ if (isset($_GET['error'])) {
       <!--This will add the upper navigation to the website-->
       <?php include './frontend/menu.php';?>
       <div class="login_body">
+      <?php
+            if (isset($_GET['error'])) {
+                  if ($_GET['error'] == "already_exist") {
+                        echo "<font color='red'><p align='center'>Number already exist.</p></font>";
+                  }
+            }
+      ?>
             <form class="form1" name="myform" action="register.php" method="POST" enctype="multipart/form-data">
                   <p class="sign" align="center">Register Here</p>
                   <input class="un" type="number" class="form-control" name="number" id="number" placeholder="Mobile Number" pattern="(\+977)?[9][6-9]\d{8}" required></input>
