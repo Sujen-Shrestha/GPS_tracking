@@ -264,6 +264,28 @@ body.noscroll .header_menu a{
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   cursor: pointer;
+
+}
+ .suggestion_button {
+  border: 2px solid var(--primary);
+  border-radius: 2rem;
+  color: var(--primary);
+  background-color: var(--white);
+  font-weight: 600;
+  text-transform: lowercase;
+  font-size: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.suggestion_button:hover{
+  background-color: var(--primary);
+  color: var(--white);
+  transition-duration: 0.25s;
+  border: 2px solid var(--white);
 }
 
 .login_button_inverse:hover{
@@ -350,6 +372,17 @@ footer{
   text-align: center;
   padding: 1rem;
 }
+.sugg-wrapper{
+  margin-top:2rem;
+  display:block;
+}
+
+.sugg-wrapper button{
+  margin-top:2rem;
+
+  align-content: center;
+}
+
 .footer-content h3{
   font-size: 2.1rem;
   font-weight: 500;

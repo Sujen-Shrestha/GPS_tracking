@@ -33,11 +33,11 @@
   </header>
   <!--navigation for hamburger-->
   <div class="header_menu">
-      <a href="../login.php">Home</a>
+      <a href="index.php">Home</a>
 
       <a href="#">About</a>
 
-      <a href="../register.php">Get involved</a>
+      <a href="registerpage.php">Get involved</a>
 
       <a href="#">Live Location</a>
 

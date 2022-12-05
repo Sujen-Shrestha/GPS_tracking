@@ -14,10 +14,10 @@
         </p>
       </div>
       <div class="about_image hide-for-desktop">
-        <img src="./images/blob.svg" alt="blood bank image">
+        <img src="./images/blob.svg" alt="blood bank image" class="responsive">
       </div>
       <div class="about_image hide-for-mobile">
-        <img src="./images/blob.svg" alt="blood bank image">
+        <img src="./images/blob.svg" alt="blood bank image" class="responsive" >
       </div>
   </div>
 </section>

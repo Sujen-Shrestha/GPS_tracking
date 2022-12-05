@@ -2,10 +2,10 @@
 
   <div class="main_hero_body">
     <div class="hero_image hide-for-mobile">
-      <img src="./images/illustration.jpg" alt="illustration_image">
+      <img src="./images/illustration.jpg" alt="illustration_image" class="responsive" >
     </div>
     <div class="hero_image hide-for-desktop">
-      <img src="./images/illustration.jpg" alt="illustration_image">
+      <img src="./images/illustration.jpg" alt="illustration_image" class="responsive" >
       
     </div>
     <div class="hero_desp hide-for-mobile">
