@@ -6,27 +6,43 @@
             </div>
             <div class="sidebar-menu">
                   <ul>
-                        <li>
+                        <?php if ($_SESSION['role'] == 'super admin') : ?>
+                            <li>
                               <a href="#" class="active"><span class="las la-igloo" ></span><span>Dashboard</span></a>
-                        </li>
-                        <li>
-                              <a href="#" class="in-active" ><span class="las la-users" ></span><span>Customers</span></a>
-                        </li>
-                        <li>
-                              <a href="#" class="in-active"><span class="las la-map-marker" ></span><span>Location</span></a>
-                        </li>
-                        <li>
-                              <a href="#" class="in-active" ><span class="las la-user-tie" ></span><span>Managers</span></a>
-                        </li>
-                        <li>
-                              <a href="#" class="in-active" ><span class="las la-wallet" ></span><span>Payments</span></a>
-                        </li>
-                        <li>
-                              <a href="#" class="in-active" ><span class="las la-calendar-check" ></span><span>Schedule</span></a>
-                        </li>
-                        <li>
-                              <a href="#" class="in-active" ><span class="las la-sign-out-alt" ></span><span>Sign out</span></a>
-                        </li>
+                            </li>
+                            <li>
+                                <a href="#" class="in-active" ><span class="las la-users" ></span><span>Customers</span></a>
+                            </li>
+                            <li>
+                                <a href="#" class="in-active"><span class="las la-map-marker" ></span><span>Areas</span></a>
+                            </li>
+                            <li>
+                                <a href="#" class="in-active" ><span class="las la-user-tie" ></span><span>Managers</span></a>
+                            </li>
+                            <li>
+                                <a href="#" class="in-active" ><span class="las la-wallet" ></span><span>Payments</span></a>
+                            </li>
+                            <li>
+                                <a href="#" class="in-active" ><span class="las la-sign-out-alt" ></span><span>Sign out</span></a>
+                            </li>
+                        <?php endif; ?>
+                        <?php if ($_SESSION['role'] == 'manager') : ?>
+                            <li>
+                              <a href="#" class="active"><span class="las la-igloo" ></span><span>Dashboard</span></a>
+                            </li>
+                            <li>
+                                <a href="#" class="in-active" ><span class="las la-users" ></span><span>Customers</span></a>
+                            </li>
+                            <li>
+                                <a href="#" class="in-active" ><span class="las la-calendar-day" ></span><span>Schedule</span></a>
+                            </li>
+                            <li>
+                                <a href="#" class="in-active" ><span class="las la-location-arrow" ></span><span>Live Location</span></a>
+                            </li>
+                            <li>
+                                <a href="#" class="in-active" ><span class="las la-sign-out-alt" ></span><span>Sign out</span></a>
+                            </li>
+                        <?php endif; ?>
                   </ul>
             </div>
       </div>

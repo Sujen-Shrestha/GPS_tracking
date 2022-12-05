@@ -48,7 +48,7 @@ session_start();
                         <div class="card-single">
                               <div>
                                   <h1>79</h1>
-                                  <span>Locations</span>  
+                                  <span>Areas</span>  
                               </div>
                               <div>
                                     <span class="las la-map-marker"></span>
