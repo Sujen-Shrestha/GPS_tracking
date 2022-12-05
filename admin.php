@@ -11,7 +11,10 @@
       <!--link to use google fonts-->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
             rel="stylesheet">
+      <!--for font-->     
       <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400&display=swap" rel="stylesheet">
+      <!--for favicon-->
+      <link rel="icon" type="images/logo.png" href="images/logo.png">
       <title>GPS tracking and Scheduling System</title>
 </head>
 
