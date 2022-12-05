@@ -19,8 +19,14 @@ Must be placed inside main-content div-->
                 <div class="user-wrapper">
                         <img src="images/admin.png" width="40px" height="40px" alt="admin-photo">
                         <div>
-                              <h4>Super Admin</h4>
-                              <small>Super admin</small>
+                            <?php if ($_SESSION['role'] == 'manager') : ?>
+                            <h4>Manager</h4>
+                            <small>Manager</small>
+                            <?php endif; ?>
+                            <?php if ($_SESSION['role'] == 'super admin') : ?>
+                            <h4>Super Admin</h4>
+                            <small>Super Admin</small>
+                            <?php endif; ?>
                         </div>
                 </div>
             </header1>

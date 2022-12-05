@@ -30,9 +30,6 @@ session_start();
 </head>
 
 <body>
-      <?php if ($_SESSION['role'] == 'manager') : ?>
-            <h1>Hello you are logged in as Admin</h1>
-      <?php endif; ?>
       <input type="checkbox" id="nav-toggle">
       <?php include './admin/sidebar.php';?>
       <div class="main-content">
