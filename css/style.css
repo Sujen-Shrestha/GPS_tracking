@@ -754,7 +754,7 @@ main {
   margin-top: 1rem;
 }
 
-.card-single{
+.card-single, .card-single-time{
   display: flex;
   justify-content: space-between;
   background:#fff;
@@ -762,23 +762,33 @@ main {
   border-radius: 2px;
 }
 
+.card-single-time:hover{
+  color: #f0f0f0;
+  background: #DC143C;
+}
 .card-single:hover{
   background: var(--primary);
   color: #f0f0f0;
 }
 
-.card-single:hover div:last-child span{
+.card-single:hover div:last-child span,
+.card-single-time:hover div:last-child span{
+
   color: #f0f0f0;
 }
 
-.card-single:hover div:first-child span{
+.card-single:hover div:first-child span,
+.card-single-time:hover div:first-child span{
   color: #f0f0f0;
 }
-.card-single div:first-child span{
+.card-single div:first-child span,
+  .card-single-time div:first-child span{
   color: var(--gray);
 }
 
-.card-single div:last-child span{
+.card-single div:last-child span,
+.card-single-time div:last-child span{
+
   color: var(--primary);
   font-size: 3rem;
 }
