@@ -28,6 +28,8 @@ tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
+
+
 a{
   text-decoration: none;
   color: var(--white);
@@ -839,7 +841,7 @@ table{
   border-collapse:collapse;
 }
 
-.table-responsive{
+.table-responsive, .table-contact{
   width: 100%;
   overflow-x: auto;
 }
@@ -856,3 +858,44 @@ td{
   padding: .5rem 1rem;
   font-size: .9rem;
 }
+
+/* contact body */
+.contact-body{
+  display: grid;
+  margin-top: 3rem;
+  margin: 1rem;
+  padding: 2rem;
+  background: #f0f0f0;
+  grid-template-columns: repeat(2,1fr);
+  column-gap: 50px;
+}
+
+.table-contact{
+  background: #ccc;
+  margin: 2rem;
+  margin-right: 4rem;
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+.table-contact:hover{
+  background: var(--primary);
+  color: #f0f0f0;
+  transition: ease-in-out;
+  transition-duration: .125s;
+}
+
+.table-contact:hover thead tr{
+  border-bottom: 2px solid #f0f0f0);
+}
+
+.table-contact:hover tr:nth-child(even) {
+  background-color: var(--blue);
+}
+
+.table-contact h3{
+  margin-bottom: 0.75rem;
+  font-size: 1.2rem;
+  margin-left: 30%;
+}
+

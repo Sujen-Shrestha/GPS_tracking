@@ -23,7 +23,7 @@
         
         <a href="../login.php">Live Location</a>
         
-        <a href="#">Contact</a>
+        <a href="contact.php">Contact</a>
 
         </div>
 
@@ -41,6 +41,6 @@
 
       <a href="#">Live Location</a>
 
-      <a href="#">Contact</a>
+      <a href="contact.php">Contact</a>
       </div>
 </div>
