@@ -1,62 +1,65 @@
+<!DOCTYPE html>
+        <html>
+           <head>
+              <title>OSM and Leaflet</title>
+              <link rel = "stylesheet" href = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
+           </head>
+<body>
+              <div id = "map" style = "width: 900px; height: 580px"></div>
+            <script src = "http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+              <script>
+
 <?php
-$con = mysqli_connect('localhost', 'sagar', 'Iamsagar456@');
-mysqli_select_db($con, 'sagar');
+   $con = mysqli_connect('localhost', 'sagar', 'Iamsagar456@');
+   mysqli_select_db($con, 'sagar');
 
-$result = mysqli_query($con, "SELECT * FROM locations");
-while ($row = mysqli_fetch_array($result)) {
-  $lat_d = $row['latitude'];
-  $long_d = $row['longitude'];
-}
+   $result = mysqli_query($con, "SELECT * FROM locations");
+   while ($row = mysqli_fetch_array($result)) {
+         $lat_d = $row['latitude'];
+         $long_d = $row['longitude'];
+   }
 
-$result = array(array('latitude' => $lat_d, 'longitude' => $long_d));
-
+   $result = array(array('latitude' => $lat_d, 'longitude' => $long_d));
+   // Set the latitude and longitude coordinates of the location
+   $latitude = $lat_d;
+   $longitude = $long_d;
 ?>
-<!doctype html>
-<html>
+                  const lat = <?php echo $latitude; ?>;
+                  const long = <?php echo $longitude; ?>;;
 
-<head>
-  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-  <script type="text/javascript">
-    var map;
 
-    function initialize() {
 
-      var latlng = new google.maps.LatLng(<?php echo $lat_d;?>,<?php echo $long_d;?>);
-      var myOptions = {
-        zoom: 14,
-        center: latlng,
-        panControl: true,
-        zoomControl: true,
-        scaleControl: true,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      }
+                 // Creating map options
 
-      map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-      <?php
+                 var mapOptions = {
+                    center: [lat, long],
+                    zoom: 13
+                 }
+                 
+                 // Creating a map object
+                 var map = new L.map('map', mapOptions);
+                 
+                 // Creating a Layer object
+                 var layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+                 
+                 // Adding layer to the map
+                 map.addLayer(layer);
+                 
+                 const leafletMarkers = L.layerGroup([
 
-      $result = mysqli_query($con,"SELECT * FROM locations");
-      while ($row = mysqli_fetch_array($result)) {
 
-        echo "addMarker(new google.maps.LatLng(" . $row['latitude'] . ", " . $row['longitude'] . "), map);";
-      } ?>
-    }
+                 //adding marker
+                 <?php
 
-    function addMarker(latLng, map) {
-      var marker = new google.maps.Marker({
-        position: latLng,
-        map: map,
-        animation: google.maps.Animation.DROP,
-        icon: '/GPS_tracking/icons8-container-truck-30.png'
-      });
+                     $result = mysqli_query($con,"SELECT * FROM locations");
+                     while ($row = mysqli_fetch_array($result)) {
 
-      return marker;
-    }
-  </script>
-</head>
-
-<body onload="initialize()">
-  <div id="map_canvas" style="position:relative;width:1345px;height:600px;border:solid black 1px;"></div>
-  </div>
-</body>
-
-</html>
+                     echo "new L.Marker([" . $row['latitude'] . ", " . $row['longitude'] . "]),\n";
+                     
+                     } ?>
+                 ]);
+                 leafletMarkers.addTo(map);
+            </script>
+           </body>
+           
+        </html>
