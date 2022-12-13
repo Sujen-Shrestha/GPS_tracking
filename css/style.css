@@ -899,3 +899,16 @@ td{
   margin-left: 30%;
 }
 
+/*for map*/
+.map{
+  width: 100%;
+  height: 500px;
+  margin: 2rem;
+  margin-top: 5rem;
+  border-radius: 2%;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+
+.map:hover{
+  box-shadow: 0px 5px 15px 2px var(--blue);
+}

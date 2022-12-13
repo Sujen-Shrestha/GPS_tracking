@@ -21,7 +21,7 @@
 
         <a href="registerpage.php">Get involved</a>
         
-        <a href="../login.php">Live Location</a>
+        <a href="map.php">Live Location</a>
         
         <a href="contact.php">Contact</a>
 
@@ -39,7 +39,7 @@
 
       <a href="registerpage.php">Get involved</a>
 
-      <a href="#">Live Location</a>
+      <a href="map.php">Live Location</a>
 
       <a href="contact.php">Contact</a>
       </div>
