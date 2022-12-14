@@ -100,77 +100,80 @@ session_start();
                                           <span class="las la-user-tie"></span>
                                     </div>
                               </div>
-                              <?php       if ($_SESSION['role'] == 'super admin') : ?>
+
                               <div class="card-single">
                                     <div>
-                                          <h1>
-                                                <?php
-                                                $con = mysqli_connect('localhost', 'sagar', 'Iamsagar456@');
-                                                mysqli_select_db($con, 'sagar');
-
-                                                $result = mysqli_query($con, "SELECT SUM(amount) as total FROM payment GROUP BY amount");
-                                                while ($row = mysqli_fetch_array($result)) {
-                                                      echo "Rs.";
-                                                      echo $row['total'];
-                                                }
-                                                ?>
-
-
-
-                                          </h1>
-                                          <span>Income</span>
-                                    </div>
-                                    <div>
-                                          <span class="lab la-google-wallet"></span>
-                                    </div>
-                              </div>
-<?php endif; ?>
-                        </div>
-<?php       if ($_SESSION['role'] == 'super admin') : ?>
-                        <div class="recent-grid">
-                              <div class="projects">
-                                    <div class="card">
-                                          <div class="card-header">
-                                                <h3>Recent added managers</h3>
-                                                <button> See all <span class="las al-arrow-right"></span></button>
-                                          </div>
-                                          <div class="card-body">
-                                                <div class="table-responsive">
+                                          <?php if ($_SESSION['role'] == 'super admin') : ?>
+                                                <h1>
                                                       <?php
-                                               
                                                       $con = mysqli_connect('localhost', 'sagar', 'Iamsagar456@');
                                                       mysqli_select_db($con, 'sagar');
-                                                      $result = mysqli_query($con, "SELECT * FROM admintables WHERE role = 'manager'");
+
+                                                      $result = mysqli_query($con, "SELECT SUM(amount) as total FROM payment GROUP BY amount");
                                                       while ($row = mysqli_fetch_array($result)) {
-                                                            ?>
-                                                     
-                                                      <table width="100%">
-                                                            <thead>
-                                                                  <tr>
-                                                                        <td>Manager Id</td>
-                                                                        <td> Manager Name </td>
-                                                                        <td> Location Area </td>
-                                                                  </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                  <tr>
-                                                                        <td><?php echo $row['admin_id'];?></td>
-                                                                        <td><?php echo $row['name'];?></</td>
-                                                                        <td><?php echo $row['location'];?></</td>
-                                                                        
-                                                                  </tr>
-                                                            </tbody>
-                                                      </table>
-                                                      <?php } 
-                                                      endif; 
+                                                            echo "Rs.";
+                                                            echo $row['total'];
+                                                      }
                                                       ?>
-                                                </div>
 
-                                          </div>
+
+
+                                                </h1>
+                                                <span>Income</span>
                                     </div>
-
+                              <?php endif; ?>
+                              <div>
+                                    <span class="lab la-google-wallet"></span>
                               </div>
+                              </div>
+
                         </div>
+
+                        <?php if ($_SESSION['role'] == 'super admin') : ?>
+                              <div class="recent-grid">
+                                    <div class="projects">
+                                          <div class="card">
+                                                <div class="card-header">
+                                                      <h3>Recent added managers</h3>
+                                                      <button> See all <span class="las al-arrow-right"></span></button>
+                                                </div>
+                                                <div class="card-body">
+                                                      <div class="table-responsive">
+                                                            <?php
+
+                                                            $con = mysqli_connect('localhost', 'sagar', 'Iamsagar456@');
+                                                            mysqli_select_db($con, 'sagar');
+                                                            $result = mysqli_query($con, "SELECT * FROM admintable WHERE role = 'manager'");
+                                                            while ($row = mysqli_fetch_array($result)) {
+                                                            ?>
+
+                                                                  <table width="100%">
+                                                                        <thead>
+                                                                              <tr>
+                                                                                    <td>Manager Id</td>
+                                                                                    <td> Manager Name </td>
+                                                                                    <td> Location Area </td>
+                                                                              </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                              <tr>
+                                                                                    <td><?php echo $row['admin_id']; ?></td>
+                                                                                    <td><?php echo $row['name']; ?></< /td>
+                                                                                    <td><?php echo $row['location']; ?></< /td>
+
+                                                                              </tr>
+                                                                        </tbody>
+                                                                  </table>
+                                                      <?php }
+                                                      endif;
+                                                      ?>
+                                                      </div>
+
+                                                </div>
+                                          </div>
+
+                                    </div>
+                              </div>
 
                   </main>
             </div>
