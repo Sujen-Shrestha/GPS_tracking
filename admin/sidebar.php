@@ -13,19 +13,19 @@ session_start();
         <ul>
             <?php if ($_SESSION['role'] == 'super admin') : ?>
                 <li>
-                    <a href="#" class="active"><span class="las la-igloo"></span><span>Dashboard</span></a>
+                    <a href="#" class="dashboard active"><span class="las la-igloo"></span><span>Dashboard</span></a>
                 </li>
                 <li>
-                    <a href="#" class="in-active"><span class="las la-users"></span><span>Customers</span></a>
+                    <a href="#" class="customer in-active"><span class="las la-users"></span><span>Customers</span></a>
                 </li>
                 <li>
-                    <a href="#" class="in-active"><span class="las la-map-marker"></span><span>Areas</span></a>
+                    <a href="#" class="area in-active"><span class="las la-map-marker"></span><span>Areas</span></a>
                 </li>
                 <li>
-                    <a href="#" class="in-active"><span class="las la-user-tie"></span><span>Managers</span></a>
+                    <a href="#" class="manager in-active"><span class="las la-user-tie"></span><span>Managers</span></a>
                 </li>
                 <li>
-                    <a href="#" class="in-active"><span class="las la-wallet"></span><span>Payments</span></a>
+                    <a href="#" class="payment in-active"><span class="las la-wallet"></span><span>Payments</span></a>
                 </li>
                 <li>
                     <a href="./logout.php" class="in-active"><span class="las la-sign-out-alt"></span><span>Sign out</span></a>
@@ -33,7 +33,7 @@ session_start();
             <?php endif; ?>
             <?php if ($_SESSION['role'] == 'manager') : ?>
                 <li>
-                    <a href="#" class="active"><span class="las la-igloo"></span><span>Dashboard</span></a>
+                    <a href="#" class="dashboard active"><span class="las la-igloo"></span><span>Dashboard</span></a>
                 </li>
                 <li>
                     <a href="#" class="in-active"><span class="las la-users"></span><span>Customers</span></a>
@@ -71,4 +71,84 @@ session_start();
             }
         })
     });
+</script>
+
+<!-- for main body-->
+<!--for homepage-->
+<script>
+        $(document).ready(function () {
+            $('.sidebar-menu ul li .dashboard').click(function () {
+                $('main .content').removeClass('active');       //Remove active class from all tags
+                $('main .content').addClass('in-active'); // ADD CLASS TO ALL THE TAGS.
+
+                if ($('main .homepage').hasClass('in-active')) { // CHECK IF THE TAG HAS 'in-active' CLASS.   
+                    $('main .homepage')
+                        .removeClass('in-active')
+                        .addClass('active');
+                }
+            })
+        });
+    </script>
+
+<!--for customer-->
+<script>
+        $(document).ready(function () {
+            $('.sidebar-menu ul li .customer').click(function () {
+                $('main .content').removeClass('active');       //Remove active class from all tags
+                $('main .content').addClass('in-active');       // ADD CLASS TO ALL THE TAGS.
+
+                if ($('main .customerpage').hasClass('in-active')) { // CHECK IF THE TAG HAS 'in-active' CLASS.  
+                    $('main .customerpage')
+                        .removeClass('in-active')
+                        .addClass('active');
+                }
+            })
+        });
+</script>
+<!-- fro area-->
+<script>
+        $(document).ready(function () {
+            $('.sidebar-menu ul li .area').click(function () {
+                $('main .content').removeClass('active');       //Remove active class from all tags
+                $('main .content').addClass('in-active');       // ADD CLASS TO ALL THE TAGS.
+
+                if ($('main .areapage').hasClass('in-active')) { // CHECK IF THE TAG HAS 'in-active' CLASS.  
+                    $('main .areapage')
+                        .removeClass('in-active')
+                        .addClass('active');
+                }
+            })
+        });
+</script>
+
+<!--for payment-->
+<script>
+        $(document).ready(function () {
+            $('.sidebar-menu ul li .payment').click(function () {
+                $('main .content').removeClass('active');       //Remove active class from all tags
+                $('main .content').addClass('in-active');       // ADD CLASS TO ALL THE TAGS.
+
+                if ($('main .paymentpage').hasClass('in-active')) { // CHECK IF THE TAG HAS 'in-active' CLASS.  
+                    $('main .paymentpage')
+                        .removeClass('in-active')
+                        .addClass('active');
+                }
+            })
+        });
+</script>
+
+<!--for manager-->
+<script>
+        $(document).ready(function () {
+            $('.sidebar-menu ul li .manager').click(function () {
+                $('main .content').removeClass('active');       //Remove active class from all tags
+                $('main .content').addClass('in-active');       // ADD CLASS TO ALL THE TAGS.
+
+                if ($('main .managerpage').hasClass('in-active')) { // CHECK IF THE TAG HAS 'in-active' CLASS.  
+                    $('main .managerpage')
+                        .removeClass('in-active')
+                        .addClass('active');
+                }
+            })
+        });
 </script>

@@ -238,7 +238,6 @@ body.noscroll .header_menu a{
     color: var(--white);
     background-color: var(--primary);
     font-weight: 600;
-    text-transform: lowercase;
     font-size: 1rem;
     padding-left: 2rem;
     padding-right: 2rem;
