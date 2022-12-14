@@ -131,7 +131,7 @@ session_start();
                               </div>
 
                               <?php if ($_SESSION['role'] == 'super admin') : ?>
-                              <div class="recent-grid">
+                                    <div class="recent-grid">
                                           <div class="projects">
                                                 <div class="card">
                                                       <div class="card-header">
@@ -140,53 +140,261 @@ session_start();
                                                       </div>
                                                       <div class="card-body">
                                                             <div class="table-responsive">
-                                                                  <?php
+                                                                  <table width="100%">
+                                                                        <thead>
+                                                                              <tr>
+                                                                                    <td>Manager Id</td>
+                                                                                    <td> Manager Name </td>
+                                                                                    <td> Location Area </td>
+                                                                              </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                              <?php
 
-                                                                  $con = mysqli_connect('localhost', 'sagar', 'Iamsagar456@');
-                                                                  mysqli_select_db($con, 'sagar');
-                                                                  $result = mysqli_query($con, "SELECT * FROM admintable WHERE role = 'manager'");
-                                                                  while ($row = mysqli_fetch_array($result)) {
-                                                                  ?>
+                                                                              $con = mysqli_connect('localhost', 'sagar', 'Iamsagar456@');
+                                                                              mysqli_select_db($con, 'sagar');
+                                                                              $result = mysqli_query($con, "SELECT * FROM admintable WHERE role = 'manager'");
+                                                                              while ($row = mysqli_fetch_array($result)) {
+                                                                              ?>
 
-                                                                        <table width="100%">
-                                                                              <thead>
-                                                                                    <tr>
-                                                                                          <td>Manager Id</td>
-                                                                                          <td> Manager Name </td>
-                                                                                          <td> Location Area </td>
-                                                                                    </tr>
-                                                                              </thead>
-                                                                              <tbody>
                                                                                     <tr>
                                                                                           <td><?php echo $row['admin_id']; ?></td>
                                                                                           <td><?php echo $row['name']; ?></< /td>
                                                                                           <td><?php echo $row['location']; ?></< /td>
 
                                                                                     </tr>
-                                                                              </tbody>
-                                                                        </table>
-                                                            <?php }
-                                                            endif;
-                                                            ?>
+                                                                              <?php } ?>
+
+                                                                        </tbody>
+                                                                  </table>
+                                                            <?php endif; ?>
+
                                                             </div>
 
                                                       </div>
                                                 </div>
 
                                           </div>
-                              </div>
+                                    </div>
                         </div>
                         <div class="content customerpage in-active">
-                              <h1>Customer</h1>
+                              <h2>Customer Details</h2>
+                              <table width="100%">
+                                    <thead>
+                                          <tr>
+                                                <td>Name</td>
+                                                <td>Number</td>
+                                                <td>Location</td>
+                                                <td>Payment Status</td>
+                                          </tr>
+                                    </thead>
+                                    <tbody>
+                                          <?php
+                                          $con = mysqli_connect('localhost', 'sagar', 'Iamsagar456@');
+                                          mysqli_select_db($con, 'sagar');
+                                          $result = mysqli_query($con, "SELECT * FROM usertable");
+                                          while ($row = mysqli_fetch_array($result)) {
+                                          ?>
+                                                <tr>
+
+                                                      <td><?php echo $row['name']; ?></td>
+                                                      <td><?php echo $row['number']; ?></td>
+                                                      <td><?php echo $row['location']; ?> </td>
+
+                                                      <td>
+                                                            <?php
+                                                            if ($row['payment_status'] == null) {
+                                                                  echo "Payment Due &#10060;";
+                                                            } else {
+                                                                  echo "Payment Cleared &#9989;";
+                                                            }
+                                                            ?>
+                                                      </td>
+
+
+                                                </tr>
+                                          <?php } ?>
+                                    </tbody>
+                              </table>
+
                         </div>
                         <div class="content managerpage in-active">
-                              <h1>Manager halne</h1>
+                              <h2>Managers Details</h2>
+                              <table width="100%">
+                                    <thead>
+                                          <tr>
+                                                <td>ID</td>
+                                                <td>Name</td>
+                                                <td>Number</td>
+                                                <td>Password</td>
+                                                <td>Location</td>
+                                                <td>Delete</td>
+                                          </tr>
+                                    </thead>
+                                    <tbody>
+                                          <?php
+                                          $con = mysqli_connect('localhost', 'sagar', 'Iamsagar456@');
+                                          mysqli_select_db($con, 'sagar');
+                                          $result = mysqli_query($con, "SELECT * FROM admintable WHERE role='manager'");
+                                          while ($row = mysqli_fetch_array($result)) {
+                                          ?>
+                                                <tr>
+                                                      <td><?php echo $row['admin_id']; ?></td>
+
+                                                      <td><?php echo $row['name']; ?></td>
+                                                      <td><?php echo $row['number']; ?></td>
+                                                      <td><?php echo $row['password']; ?> </td>
+                                                      <td><?php echo $row['location']; ?> </td>
+
+                                                      <td>
+                                                            <form action="delete_admin.php" method="post">
+                                                                  <input type="hidden" name="delete_id" value="<?php echo $row['admin_id']; ?>">
+                                                                  <button type="submit" name="delete_btn" class="btn_btn_danger btn btn-info">Delete</button>
+                                                            </form>
+                                                      </td>
+
+
+                                                </tr>
+                                          <?php } ?>
+                                    </tbody>
+                              </table>
+
+                              <h2>Update Manager Details</h2>
+                              <form action="update_admin.php" method="POST">
+
+                                    ID:<select name="id" required><br>
+                                          <option value="" disabled selected>Choose ID to update</option>
+                                          <?php
+                                          include_once 'database.php';
+                                          $sql = mysqli_query($con, "SELECT * From admintable WHERE role='manager'");
+                                          $row = mysqli_num_rows($sql);
+                                          while ($row = mysqli_fetch_array($sql)) {
+                                                echo "<option value='" . $row['admin_id'] . "'>" . $row['admin_id'] . "</option>";
+                                          }
+                                          ?>
+                                    </select>
+                                    <br> Name:<input type="text" name="name"></input><br>
+                                    Number:<input type="number" name="number"> </input><br>
+                                    Password: <input type=" password" name="password"> </input><br>
+
+                                    <select name="location" id="location" required><br>
+                                          <option value="" disabled selected>Choose new area </option>
+                                          <?php
+                                          include_once 'database.php';
+                                          $sql = mysqli_query($con, "SELECT * From area");
+                                          $row = mysqli_num_rows($sql);
+                                          while ($row = mysqli_fetch_array($sql)) {
+                                                echo "<option value='" . $row['area'] . "'>" . $row['area'] . "</option>";
+                                          }
+                                          ?>
+                                    </select>
+                                    <button class="login_button" name="update_btn">Update</button>
+                              </form>
+                              <h2>Add new Manager</h2>
+                              <form action="add_admin.php" method="POST">
+                                    <br> Name:<input type="text" name="name"></input><br>
+                                    Number:<input type="number" name="number"> </input><br>
+                                    Password: <input type=" password" name="password"> </input><br>
+
+                                    <select name="location" id="location" required><br>
+                                          <option value="" disabled selected>Choose new area </option>
+                                          <?php
+                                          include_once 'database.php';
+                                          $sql = mysqli_query($con, "SELECT * From area");
+                                          $row = mysqli_num_rows($sql);
+                                          while ($row = mysqli_fetch_array($sql)) {
+                                                echo "<option value='" . $row['area'] . "'>" . $row['area'] . "</option>";
+                                          }
+                                          ?>
+                                    </select>
+                                    <button class="login_button" name="add_btn">ADD</button>
+                              </form>
+
+
+
+
+
                         </div>
                         <div class="content areapage in-active">
-                              <h1>area halne</h1>
+                              <h1>
+                                    Avaliable Areas
+                              </h1>
+                              <table width="100%">
+                                    <thead>
+                                          <tr>
+                                                <td>Id</td>
+                                                <td>Area</td>
+                                                <td>Area Manager</td>
+
+
+                                          </tr>
+                                    </thead>
+                                    <tbody>
+                                          <?php
+                                          $con = mysqli_connect('localhost', 'sagar', 'Iamsagar456@');
+                                          mysqli_select_db($con, 'sagar');
+                                          $result = mysqli_query($con, "SELECT id,area,name FROM area INNER JOIN admintable ON area.admin_id = admintable.admin_id");
+                                          while ($row = mysqli_fetch_array($result)) {
+                                          ?>
+                                                <tr>
+
+                                                      <td><?php echo $row['id']; ?></td>
+                                                      <td><?php echo $row['area']; ?></td>
+                                                      <td><?php echo $row['name']; ?> </td>
+                                                </tr>
+                                          <?php } ?>
+                                    </tbody>
+                              </table>
                         </div>
                         <div class="content paymentpage in-active">
-                              <h1>payment halne</h1>
+                              <table width="100%">
+                                    <thead>
+                                          <tr>
+                                                <td>Customer Name</td>
+                                                <td>location</td>
+                                                <td>Number</td>
+                                                <td>Amount</td>
+                                                <td>Last payment</td>
+                                                <td>Payment Status</td>
+                                                <td>Change status</td>
+
+                                          </tr>
+                                    </thead>
+                                    <tbody>
+                                          <?php
+                                          $con = mysqli_connect('localhost', 'sagar', 'Iamsagar456@');
+                                          mysqli_select_db($con, 'sagar');
+                                          $result = mysqli_query($con, "SELECT id,name,location,number,amount,last_payment,payment_status FROM usertable INNER JOIN payment ON usertable.id = payment.user_id");
+                                          while ($row = mysqli_fetch_array($result)) {
+                                          ?>
+                                                <tr>
+
+                                                      <td><?php echo $row['name']; ?></td>
+                                                      <td><?php echo $row['location']; ?></td>
+                                                      <td><?php echo $row['number']; ?> </td>
+                                                      <td><?php echo $row['amount']; ?> </td>
+                                                      <td><?php echo $row['last_payment']; ?> </td>
+                                                      <td>
+
+                                                            <?php
+                                                            if ($row['payment_status'] == null) {
+                                                                  echo "Payment Due &#10060;";
+                                                            } else {
+                                                                  echo "Payment Cleared &#9989;";
+                                                            }
+                                                            ?>
+
+                                                      </td>
+                                                      <td>
+                                                            <form action="change_payment.php" method="post">
+                                                                  <input type="hidden" name="change_id" value="<?php echo $row['id']; ?>">
+                                                                  <button type="submit" name="change_btn" class="btn_btn_danger btn btn-info">Disable</button>
+                                                            </form>
+                                                      </td>
+                                                </tr>
+                                          <?php } ?>
+                                    </tbody>
+                              </table>
                         </div>
                   </main>
             </div>
