@@ -502,6 +502,11 @@ form.form1 {
   padding-top: 2rem;
 }
 
+.login_button_body_panel{
+  margin-left: 35%;
+}
+
+
 .co-input{
   display: flex;
   justify-content: space-between;
@@ -658,12 +663,14 @@ header1{
   padding: 1rem 1.5rem;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.14);
   position: fixed;
+  overflow: hidden;
   left: 345px;
   width: calc(100% - 345px);
   top: 0;
   z-index: 100;
   transition: width 300ms;
   margin-left: 0.5rem;
+  background: var(--white);
 }
 
 header1 h2{
@@ -745,6 +752,7 @@ main {
   padding:2rem 1.5rem;
   background: #f0f0f0;
   min-height: calc(100vh - 112px);
+  z-index: -100;
 
 }
 
@@ -840,7 +848,7 @@ table{
   border-collapse:collapse;
 }
 
-.table-responsive, .table-contact{
+.table-responsive, .table-contact, .table-contact-panel{
   width: 100%;
   overflow-x: auto;
 }
@@ -877,6 +885,14 @@ td{
   border-radius: 4px;
 }
 
+.table-contact-panel{
+  background: var(--white);
+  padding: 1rem;
+  border-radius: 3px;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+
+}
+
 .table-contact:hover{
   background: var(--primary);
   color: #f0f0f0;
@@ -896,6 +912,13 @@ td{
   margin-bottom: 0.75rem;
   font-size: 1.2rem;
   margin-left: 30%;
+}
+
+.table-contact-panel h3{
+  margin-top: 1rem;
+  margin-bottom:1.2rem;
+  font-size: 1.6rem;
+  margin-left: 42%;
 }
 
 /*for map*/
@@ -926,4 +949,9 @@ main .in-active{
 
 main .active{
   display: show;
+}
+
+.login-wrapper{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
 }

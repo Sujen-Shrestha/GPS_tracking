@@ -22,7 +22,7 @@
                                 <a href="#" class="in-active" ><span class="las la-user-circle" ></span><span>Account</span></a>
                             </li>
                             <li>
-                                <a href="#" class="in-active" ><span class="las la-sign-out-alt" ></span><span>Sign out</span></a>
+                                <a href="./logout.php" class="in-active" ><span class="las la-sign-out-alt" ></span><span>Sign out</span></a>
                             </li>
                   </ul>
             </div>
