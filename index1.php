@@ -42,7 +42,7 @@
                               <button class="login_button" type="submit">Login</button><br>  
                         </div>
                         <div class="optional_buttons">
-                                    <a href="registerpage.php" target="_self"><button type="button" class="login_button" name="button"> Register</button></a> 
+                                    <a href="registerpage.php" target="_self"><button type="button" class="login_button" name="button">Register</button></a> 
                                     <button class="login_button"><a class="admin" href="admin.php">Admin Login</a></button>  
                         </div>
             </form>

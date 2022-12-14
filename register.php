@@ -1,8 +1,14 @@
 <?php
 session_start();
 include_once 'database.php';
+
+$name = $_POST['name'];
 $number = $_POST['number'];
+$location = $_POST['location'];
 $password = $_POST['password'];
+
+
+
 
 $file = rand(1000, 100000) . "-" . $_FILES['file']['name'];
 $file_loc = $_FILES['file']['tmp_name'];
@@ -20,11 +26,15 @@ $new_file_name = strtolower($file);
 
 $final_file = str_replace(' ', '-', $new_file_name);
 
+$latitude = $_POST['latitude'];
+$longitude = $_POST['longitude'];
+
 $query = mysqli_query($con, "SELECT * FROM usertable WHERE number='$number'");
 if (mysqli_num_rows($query) != 0) {
       header('location:registerpage.php?error=already_exist');
 } elseif (move_uploaded_file($file_loc, $folder . $final_file)) {
-      $sql = "INSERT INTO usertable(password,number,file) VALUES('$password','$number','$final_file')";
+      $sql = "INSERT INTO usertable(name,number,location,password,file,latitude,longitude) 
+      VALUES('$name','$number','$location','$password','$final_file','$latitude','$longitude')";
       mysqli_query($con, $sql);
       header('location:index1.php?error=sucess');
 }
