@@ -349,7 +349,7 @@ session_start();
                                           <?php
                                           $con = mysqli_connect('localhost', 'sagar', 'Iamsagar456@');
                                           mysqli_select_db($con, 'sagar');
-                                          $result = mysqli_query($con, "SELECT id,area,name FROM area INNER JOIN admintable ON area.admin_id = admintable.admin_id");
+                                          $result = mysqli_query($con, "SELECT id,area,name FROM area INNER JOIN admintable ON area.area = admintable.location");
                                           while ($row = mysqli_fetch_array($result)) {
                                           ?>
                                                 <tr>
