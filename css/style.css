@@ -742,7 +742,7 @@ header1 label span{
 
 #nav-toggle:checked ~ .main-content header1{
   left: 100px;
-  width: calc(100%-100px);
+  width: calc(100% - 100px) ;
   overflow-x: hidden;
 }
 

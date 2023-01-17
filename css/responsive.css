@@ -58,8 +58,10 @@
   
   .main-content header1{
     left: 100px;
-    width: calc(100%-100px);
+    width: calc(100% - 100px);
   }
+  
+
 
   .contact-body{
     grid-template-columns: repeat(2,1fr);
@@ -72,7 +74,7 @@
     grid-template-columns: repeat(3,1fr);
   }
   .main-content header1{
-    width:auto;
+    width: calc(100% - 100px);
   }
   .contact-body{
     grid-template-columns: 100%;
