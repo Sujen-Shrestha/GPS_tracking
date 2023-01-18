@@ -78,6 +78,15 @@ session_start();
 
                         </div>
                   </div>
+                  <div class="content paymentpage in-active">
+                        <p>payment page</p>
+                  </div>
+
+                  <div class="content schedulepage in-active">
+                        <p>schedule page</p>
+
+                  </div>
+            
                   <div class="content mappage in-active">
                         <div id="map" class="map-panel"></div>
                         <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
@@ -131,6 +140,10 @@ session_start();
                               ]);
                               leafletMarkers.addTo(map);
                         </script>
+                  </div>
+
+                  <div class="content accountpage in-active">
+                        <p>account page</p>
                   </div>
 
 

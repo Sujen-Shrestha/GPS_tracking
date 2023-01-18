@@ -13,6 +13,7 @@ $query = mysqli_query($con, "select * from usertable where number = '$number' an
 if (mysqli_num_rows($query) != 0) {
       session_start();
       $_SESSION['ID'] = $id;
+      $_SESSION['number'] = $number;
       header('location:main.php');
 } else {
       header('location:index1.php?error=invaliduid');

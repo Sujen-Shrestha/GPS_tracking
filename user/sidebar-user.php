@@ -10,16 +10,16 @@
                               <a href="#" class="dashboard active"><span class="las la-igloo" ></span><span>Dashboard</span></a>
                             </li>
                             <li>
-                                <a href="#" class="in-active" ><span class="las la-wallet" ></span><span>Payments</span></a>
+                                <a href="#" class="payment in-active" ><span class="las la-wallet" ></span><span>Payments</span></a>
                             </li>
                             <li>
-                                <a href="#" class="in-active" ><span class="las la-calendar-day" ></span><span>Schedule</span></a>
+                                <a href="#" class="schedule in-active" ><span class="las la-calendar-day" ></span><span>Schedule</span></a>
                             </li>
                             <li>
                                 <a href="#" class="location in-active" ><span class="las la-location-arrow" ></span><span>Live Location</span></a>
                             </li>
                             <li>
-                                <a href="#" class="in-active" ><span class="las la-user-circle" ></span><span>Account</span></a>
+                                <a href="#" class="account in-active" ><span class="las la-user-circle" ></span><span>Account</span></a>
                             </li>
                             <li>
                                 <a href="./logout.php" class="in-active" ><span class="las la-sign-out-alt" ></span><span>Sign out</span></a>
@@ -62,7 +62,39 @@
         });
     </script>
 
+    <!--for payment-->
+    <script>
+        $(document).ready(function () {
+            $('.sidebar-menu ul li .payment').click(function () {
+                $('main .content').removeClass('active');       //Remove active class from all tags
+                $('main .content').addClass('in-active'); // ADD CLASS TO ALL THE TAGS.
 
+                if ($('main .paymentpage').hasClass('in-active')) { // CHECK IF THE TAG HAS 'in-active' CLASS.   
+                    $('main .paymentpage')
+                        .removeClass('in-active')
+                        .addClass('active');
+                }
+            })
+        });
+    </script>
+
+    <!--for schedule-->
+     <script>
+        $(document).ready(function () {
+            $('.sidebar-menu ul li .schedule').click(function () {
+                $('main .content').removeClass('active');       //Remove active class from all tags
+                $('main .content').addClass('in-active'); // ADD CLASS TO ALL THE TAGS.
+
+                if ($('main .schedulepage').hasClass('in-active')) { // CHECK IF THE TAG HAS 'in-active' CLASS.   
+                    $('main .schedulepage')
+                        .removeClass('in-active')
+                        .addClass('active');
+                }
+            })
+        });
+    </script>
+
+    <!--for mappage-->
     <script>
         $(document).ready(function () {
             $('.sidebar-menu ul li .location').click(function () {
@@ -71,6 +103,22 @@
 
                 if ($('main .mappage').hasClass('in-active')) { // CHECK IF THE TAG HAS 'in-active' CLASS.  
                     $('main .mappage')
+                        .removeClass('in-active')
+                        .addClass('active');
+                }
+            })
+        });
+    </script>
+
+    <!--for account-->
+    <script>
+        $(document).ready(function () {
+            $('.sidebar-menu ul li .account').click(function () {
+                $('main .content').removeClass('active');       //Remove active class from all tags
+                $('main .content').addClass('in-active'); // ADD CLASS TO ALL THE TAGS.
+
+                if ($('main .accountpage').hasClass('in-active')) { // CHECK IF THE TAG HAS 'in-active' CLASS.   
+                    $('main .accountpage')
                         .removeClass('in-active')
                         .addClass('active');
                 }
