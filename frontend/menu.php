@@ -17,7 +17,7 @@
         
         <a href="index.php">Home</a>
 
-        <a href="#">About</a>
+        <a href="about.php">About</a>
 
         <a href="registerpage.php">Get involved</a>
         
@@ -35,7 +35,7 @@
   <div class="header_menu">
       <a href="index.php">Home</a>
 
-      <a href="#">About</a>
+      <a href="about.php">About</a>
 
       <a href="registerpage.php">Get involved</a>
 
