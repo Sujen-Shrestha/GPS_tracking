@@ -1,6 +1,9 @@
 <?php
 include('database.php');
 session_start();
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,6 +41,20 @@ session_start();
             <?php include './user/header-user.php'; ?>
             <main>
                   <div class="content homepage active">
+                      
+                  <?php if (isset($_GET['error'])) {
+                        if ($_GET['error'] == "payment_s") {
+                        echo "<font color='red'>
+                              <p align='center'>Payment Sucessful</p>
+                        </font>";
+                        }
+                        else{
+                        echo "<font color='red'>
+                              <p align='center'>Error</p>
+                        </font>";
+                        }
+                        }
+                        ?>
                         <div class="cards">
                               <div class="card-single">
                                     <div>
@@ -82,22 +99,35 @@ session_start();
                         <div class="paymentbody_user">
                               <div class="payment_element">
                                     <div class="ptitle">
-                                    <h1 class="question">Basic</h1>
+                                          <h1 class="question">Basic</h1>
                                     </div>
                                     <div class="pbody">
-                                    <img src="images/good.png" alt="good image" width="250px">
-                                    <ul>
-                                          <li>collected once per week</li>
-                                          <li>live location feature</li>
-                                          <li>email notification</li>
-                                          
-                                    </ul>
-                                    <button class="login_button">Pay</button>
+                                          <img src="images/good.png" alt="good image" width="250px">
+                                          <ul>
+                                                <li>collected once per week</li>
+                                                <li>live location feature</li>
+                                                <li>email notification</li>
+
+                                          </ul>
+                                          <?php include 'database.php';
+                                          $sql = "SELECT * FROM products WHERE id = 1";
+                                          $result = mysqli_query($con, $sql);
+                                          //var_dump($result);
+
+                                          ?>
+                                          <?php $product = mysqli_fetch_assoc($result);  ?>
+                                          <p class="card-text">Rs. <?php echo $product['amount']; ?></p>
+                                          <form method="post" action="checkout.php">
+                                                <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
+                                                <input type="submit" name="submit" value="Buy Now" class="login_button">
+                                          </form>
+
+
                                     </div>
                               </div>
                               <div class="payment_element">
                                     <div class="ptitle">
-                                          <h1 class="question" >Standard</h1>
+                                          <h1 class="question">Standard</h1>
                                     </div>
                                     <div class="pbody">
                                           <img src="images/better.png" alt="good image" width="250px">
@@ -105,14 +135,14 @@ session_start();
                                                 <li>collected once per week</li>
                                                 <li>live location feature</li>
                                                 <li>email notification</li>
-                                                
+
                                           </ul>
                                           <button class="login_button">Pay</button>
                                     </div>
-                                    </div>
+                              </div>
                               <div class="payment_element">
                                     <div class="ptitle">
-                                          <h1 class="question" >Plus Ultra</h1>
+                                          <h1 class="question">Plus Ultra</h1>
                                     </div>
                                     <div class="pbody">
                                           <img src="images/best.png" alt="good image" width="250px">
@@ -120,7 +150,7 @@ session_start();
                                                 <li>collected <em>once</em> per week</li>
                                                 <li>live location feature</li>
                                                 <li>email notification</li>
-                                                
+
                                           </ul>
                                           <button class="login_button">Pay</button>
                                     </div>
