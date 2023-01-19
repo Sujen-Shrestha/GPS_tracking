@@ -94,9 +94,9 @@ session_start();
                                     <input value="0" name="psc" type="hidden">
                                     <input value="0" name="pdc" type="hidden">
                                     <input value="EPAYTEST" name="scd" type="hidden">
-                                    <input value=<?php echo $row['package_id']; ?>" name="pid" type="hidden">
-                                    <input value="http://localhost/GPS_tracking/GPS_tracking/sucess.php?q=su" type="hidden" name="su">
-                                    <input value="http://localhost/GPS_tracking/GPS_tracking/fail.php?q=fu" type="hidden" name="fu">
+                                    <input value="<?php echo $row['package_id'];?>" name="pid" type="hidden">
+                                    <input value="http://localhost/GPS_tracking/GPS_tracking/sucess.php" type="hidden" name="su">
+                                    <input value="http://localhost/GPS_tracking/GPS_tracking/fail.php" type="hidden" name="fu">
                                     <input type="image" src="images/download.png">
                               </form>
 

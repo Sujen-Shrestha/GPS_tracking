@@ -7,7 +7,6 @@ $db_name = 'sagar';
 
 $con = mysqli_connect($db_host, $db_user, $db_pass);
 
-
 if (!$con) {
       die("Database conn Failed" . mysqli_error($con));
 }

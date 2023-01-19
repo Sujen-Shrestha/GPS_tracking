@@ -1,11 +1,11 @@
 <?php
-include 'database.php';
+include 'dbconfig.php';
 if (
       isset($_REQUEST['oid']) &&
       isset($_REQUEST['amt']) &&
       isset($_REQUEST['refId'])
 ) {
-      $sql = "SELECT * FROM package WHERE package_id = '" . $_REQUEST['oid'] . "'";
+      $sql = "SELECT * FROM orders WHERE invoice_no = '" . $_REQUEST['oid'] . "'";
       $result = mysqli_query($conn, $sql);
       if ($result) {
 
@@ -15,9 +15,9 @@ if (
                   $url = "https://uat.esewa.com.np/epay/transrec";
 
                   $data = [
-                        'amt' => $order['pkg_cost'],
+                        'amt' => $order['total'],
                         'rid' =>  $_REQUEST['refId'],
-                        'pid' =>  $order['package_id'],
+                        'pid' =>  $order['invoice_no'],
                         'scd' => 'epay_payment'
                   ];
 
@@ -29,10 +29,10 @@ if (
                   $response_code = get_xml_node_value('response_code', $response);
 
                   if (trim($response_code)  == 'Success') {
-                        $sql = "UPDATE package SET status=1 WHERE id='" . $order['package_id'] . "'";
+                        $sql = "UPDATE orders SET status=1 WHERE id='" . $order['id'] . "'";
                         mysqli_query($conn, $sql);
                         //echo 'Thank you for purchasing with us. Your payment has been successfully.';
-                        header('Location: sucess_payment.php');
+                        header('Location: success.php');
                   }
             }
       }
