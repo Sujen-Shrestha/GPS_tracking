@@ -30,9 +30,9 @@
             <div class="pbody">
                 <img src="images/good.png" alt="good image" width="300px" >
                 <ul>
-                    <li>Collected once per week</li>
-                    <li>Live location feature</li>
-                    <li>Email notification</li>   
+                    <li>~Collected once per week</li>
+                    <li>~Live location feature</li>
+                    <li>~Email notification</li>   
                 </ul>
                 
                 <div class="price_body">
@@ -48,10 +48,10 @@
                 <div class="pbody">
                     <img src="images/better.png" alt="good image" width="300px">
                     <ul>
-                        <li>Collected twice per week</li>
-                        <li>Live location feature</li>
-                        <li>Email notification</li>  
-                        <li>Sms notification</li> 
+                        <li>~Collected twice per week</li>
+                        <li>~Live location feature</li>
+                        <li>~Email notification</li>  
+                        <li>~Sms notification</li> 
                     </ul>
                     
                     <div class="price_body">
@@ -67,10 +67,10 @@
                 <div class="pbody">
                     <img src="images/best.png" alt="good image" width="300px">
                     <ul>
-                        <li>Collected <em>Three times</em> per week</li>
-                        <li>Live location feature</li>
-                        <li>Email notification</li>
-                        <li>Sms notification</li> 
+                        <li>~Collected <em>Three times</em> per week</li>
+                        <li>~Live location feature</li>
+                        <li>~Email notification</li>
+                        <li>~Sms notification</li> 
                         
                     </ul>
                     
