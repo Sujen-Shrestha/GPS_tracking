@@ -28,13 +28,17 @@
                 <h1 class="question">Basic</h1>
             </div>
             <div class="pbody">
-                <img src="images/good.png" alt="good image" width="300px">
+                <img src="images/good.png" alt="good image" width="300px" >
                 <ul>
-                    <li>collected once per week</li>
-                    <li>live location feature</li>
-                    <li>email notification</li>
-                    
+                    <li>Collected once per week</li>
+                    <li>Live location feature</li>
+                    <li>Email notification</li>   
                 </ul>
+                
+                <div class="price_body">
+                    <h2>Price: Rs 100/month</h2>
+                    <button class="payment_button">Pay</button>
+                </div>
             </div>
         </div>
         <div class="payment_element">
@@ -44,11 +48,16 @@
                 <div class="pbody">
                     <img src="images/better.png" alt="good image" width="300px">
                     <ul>
-                        <li>collected once per week</li>
-                        <li>live location feature</li>
-                        <li>email notification</li>
-                        
+                        <li>Collected twice per week</li>
+                        <li>Live location feature</li>
+                        <li>Email notification</li>  
+                        <li>Sms notification</li> 
                     </ul>
+                    
+                    <div class="price_body">
+                        <h2>Price: Rs 200/month</h2>
+                        <button class="payment_button">Pay</button>
+                    </div>
                 </div>
             </div>
         <div class="payment_element">
@@ -58,11 +67,17 @@
                 <div class="pbody">
                     <img src="images/best.png" alt="good image" width="300px">
                     <ul>
-                        <li>collected <em>once</em> per week</li>
-                        <li>live location feature</li>
-                        <li>email notification</li>
+                        <li>Collected <em>Three times</em> per week</li>
+                        <li>Live location feature</li>
+                        <li>Email notification</li>
+                        <li>Sms notification</li> 
                         
                     </ul>
+                    
+                    <div class="price_body">
+                        <h2>Price: Rs 250/month</h2>
+                        <button class="payment_button">Pay</button>
+                    </div>
                 </div>
         </div>
     </div>
