@@ -79,17 +79,40 @@ session_start();
                         </div>
                   </div>
                   <div class="content paymentpage in-active">
-                        <p>payment page</p>
+                        <?php
+                        include('database.php');
+                        $con = mysqli_connect('localhost', 'sagar', 'Iamsagar456@');
+                        mysqli_select_db($con, 'sagar');
+                        $result = mysqli_query($con, "SELECT * FROM package");
+                        while ($row = mysqli_fetch_array($result)) {
+                        ?>
+
+                              <form action="https://uat.esewa.com.np/epay/main" method="POST">
+                                    <input value="<?php echo $row['pkg_cost']; ?>" name="tAmt" type="hidden">
+                                    <input value="<?php echo $row['pkg_cost']; ?>" name="amt" type="hidden">
+                                    <input value="0" name="txAmt" type="hidden">
+                                    <input value="0" name="psc" type="hidden">
+                                    <input value="0" name="pdc" type="hidden">
+                                    <input value="EPAYTEST" name="scd" type="hidden">
+                                    <input value=<?php echo $row['package_id']; ?>" name="pid" type="hidden">
+                                    <input value="http://localhost/GPS_tracking/GPS_tracking/sucess.php?q=su" type="hidden" name="su">
+                                    <input value="http://localhost/GPS_tracking/GPS_tracking/fail.php?q=fu" type="hidden" name="fu">
+                                    <input type="image" src="images/download.png">
+                              </form>
+
+                        <?php
+                        }
+                        ?>
                   </div>
 
                   <div class="content schedulepage in-active">
                         <p>schedule page</p>
 
                   </div>
-            
+
                   <div class="content mappage in-active">
                         <div id="map" class="map-panel"></div>
-                        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
+                        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
                         <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
                         <script>
                               <?php
