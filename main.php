@@ -79,30 +79,53 @@ session_start();
                         </div>
                   </div>
                   <div class="content paymentpage in-active">
-                        <?php
-                        include('database.php');
-                        $con = mysqli_connect('localhost', 'sagar', 'Iamsagar456@');
-                        mysqli_select_db($con, 'sagar');
-                        $result = mysqli_query($con, "SELECT * FROM package");
-                        while ($row = mysqli_fetch_array($result)) {
-                        ?>
-
-                              <form action="https://uat.esewa.com.np/epay/main" method="POST">
-                                    <input value="<?php echo $row['pkg_cost']; ?>" name="tAmt" type="hidden">
-                                    <input value="<?php echo $row['pkg_cost']; ?>" name="amt" type="hidden">
-                                    <input value="0" name="txAmt" type="hidden">
-                                    <input value="0" name="psc" type="hidden">
-                                    <input value="0" name="pdc" type="hidden">
-                                    <input value="EPAYTEST" name="scd" type="hidden">
-                                    <input value="<?php echo $row['package_id'];?>" name="pid" type="hidden">
-                                    <input value="http://localhost/GPS_tracking/GPS_tracking/sucess.php" type="hidden" name="su">
-                                    <input value="http://localhost/GPS_tracking/GPS_tracking/fail.php" type="hidden" name="fu">
-                                    <input type="image" src="images/download.png">
-                              </form>
-
-                        <?php
-                        }
-                        ?>
+                        <div class="paymentbody_user">
+                              <div class="payment_element">
+                                    <div class="ptitle">
+                                    <h1 class="question">Basic</h1>
+                                    </div>
+                                    <div class="pbody">
+                                    <img src="images/good.png" alt="good image" width="250px">
+                                    <ul>
+                                          <li>collected once per week</li>
+                                          <li>live location feature</li>
+                                          <li>email notification</li>
+                                          
+                                    </ul>
+                                    <button class="login_button">Pay</button>
+                                    </div>
+                              </div>
+                              <div class="payment_element">
+                                    <div class="ptitle">
+                                          <h1 class="question" >Standard</h1>
+                                    </div>
+                                    <div class="pbody">
+                                          <img src="images/better.png" alt="good image" width="250px">
+                                          <ul>
+                                                <li>collected once per week</li>
+                                                <li>live location feature</li>
+                                                <li>email notification</li>
+                                                
+                                          </ul>
+                                          <button class="login_button">Pay</button>
+                                    </div>
+                                    </div>
+                              <div class="payment_element">
+                                    <div class="ptitle">
+                                          <h1 class="question" >Plus Ultra</h1>
+                                    </div>
+                                    <div class="pbody">
+                                          <img src="images/best.png" alt="good image" width="250px">
+                                          <ul>
+                                                <li>collected <em>once</em> per week</li>
+                                                <li>live location feature</li>
+                                                <li>email notification</li>
+                                                
+                                          </ul>
+                                          <button class="login_button">Pay</button>
+                                    </div>
+                              </div>
+                        </div>
                   </div>
 
                   <div class="content schedulepage in-active">
