@@ -4,6 +4,7 @@
 <head>
       <!--for reloading-->
       <meta http-equiv="Cache-control" content="no-cache">
+      <meta content="width=device-width, initial-scale=1" name="viewport" />
       <!--css for whole website-->
       <link rel="stylesheet" href=".\css\style.css">
       <!--css for responsive-->
@@ -37,7 +38,7 @@
                 
                 <div class="price_body">
                     <h2>Price: Rs 100/month</h2>
-                    <button class="payment_button">Pay</button>
+                    <a href="registerpage.php"><button class="payment_button">Pay</button></a>
                 </div>
             </div>
         </div>
@@ -46,7 +47,7 @@
                     <h1 class="question" >Standard</h1>
                 </div>
                 <div class="pbody">
-                    <img src="images/better.png" alt="good image" width="300px">
+                    <img src="images/better.png" alt="better image" width="300px">
                     <ul>
                         <li>~Collected twice per week</li>
                         <li>~Live location feature</li>
@@ -56,7 +57,7 @@
                     
                     <div class="price_body">
                         <h2>Price: Rs 200/month</h2>
-                        <button class="payment_button">Pay</button>
+                        <a href="registerpage.php"><button class="payment_button">Pay</button></a>
                     </div>
                 </div>
             </div>
@@ -65,7 +66,7 @@
                     <h1 class="question" >Plus Ultra</h1>
                 </div>
                 <div class="pbody">
-                    <img src="images/best.png" alt="good image" width="300px">
+                    <img src="images/best.png" alt="best image" width="300px">
                     <ul>
                         <li>~Collected <em>Three times</em> per week</li>
                         <li>~Live location feature</li>
@@ -76,7 +77,7 @@
                     
                     <div class="price_body">
                         <h2>Price: Rs 250/month</h2>
-                        <button class="payment_button">Pay</button>
+                        <a href="registerpage.php"><button class="payment_button">Pay</button></a>
                     </div>
                 </div>
         </div>

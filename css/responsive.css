@@ -67,6 +67,11 @@
     grid-template-columns: repeat(2,1fr);
   }
   
+  .paymentbody{
+    width: 95%;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+  }
 }
 
 @media only screen and (max-width:900px) {
@@ -81,12 +86,26 @@
   }
 }
 
+@media only screen and (max-width:468px) {
+  .paymentbody{
+    width: 100%;
+    margin: 0px;
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
 @media only screen and (max-width:768px) {
   .cards{
     grid-template-columns: repeat(2,1fr);
   }
   .search-wrapper{
     display: none;
+  }
+  .paymentbody{
+    width: 100%;
+    display: grid;
+    margin: 0px;
+    grid-template-columns: repeat(2,1fr);
   }
 }
 
@@ -108,5 +127,9 @@
   .cards{
     grid-template-columns: 100%;
   }
+  .paymentbody{
+    grid-template-columns: 85%;
+  }
+
 
 }
