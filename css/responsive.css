@@ -67,7 +67,7 @@
     grid-template-columns: repeat(2,1fr);
   }
   
-  .paymentbody{
+  .paymentbody, .paymentbody_user{
     width: 95%;
     display: grid;
     grid-template-columns: repeat(3,1fr);
@@ -87,7 +87,7 @@
 }
 
 @media only screen and (max-width:468px) {
-  .paymentbody{
+  .paymentbody, .paymentbody_user{
     width: 100%;
     margin: 0px;
     grid-template-columns: repeat(2,1fr);
@@ -127,7 +127,7 @@
   .cards{
     grid-template-columns: 100%;
   }
-  .paymentbody{
+  .paymentbody, .paymentbody_user{
     grid-template-columns: 85%;
   }
 

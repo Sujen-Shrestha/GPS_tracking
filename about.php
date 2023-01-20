@@ -1,3 +1,7 @@
+<?php
+include('database.php');
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -37,7 +41,13 @@
                 </ul>
                 
                 <div class="price_body">
-                    <h2>Price: Rs 100/month</h2>
+                    <?php include 'database.php';
+                        $sql = "SELECT * FROM products WHERE id = 1";
+                        $result = mysqli_query($con, $sql);
+                        //var_dump($result);
+                    ?>
+                    <?php $product = mysqli_fetch_assoc($result);  ?>
+                    <h2>Price: Rs. <?php echo $product['amount']; ?>/month</h2>
                     <a href="registerpage.php"><button class="payment_button">Pay</button></a>
                 </div>
             </div>
@@ -56,7 +66,13 @@
                     </ul>
                     
                     <div class="price_body">
-                        <h2>Price: Rs 200/month</h2>
+                        <?php include 'database.php';
+                            $sql = "SELECT * FROM products WHERE id = 2";
+                            $result = mysqli_query($con, $sql);
+                            //var_dump($result);
+                        ?>
+                        <?php $product = mysqli_fetch_assoc($result);  ?>
+                        <h2>Price: Rs. <?php echo $product['amount']; ?>/month</h2>
                         <a href="registerpage.php"><button class="payment_button">Pay</button></a>
                     </div>
                 </div>
@@ -68,7 +84,7 @@
                 <div class="pbody">
                     <img src="images/best.png" alt="best image" width="300px">
                     <ul>
-                        <li>~Collected <em>Three times</em> per week</li>
+                        <li>~Collected <em>Thrice</em> per week</li>
                         <li>~Live location feature</li>
                         <li>~Email notification</li>
                         <li>~Sms notification</li> 
@@ -76,7 +92,13 @@
                     </ul>
                     
                     <div class="price_body">
-                        <h2>Price: Rs 250/month</h2>
+                        <?php include 'database.php';
+                            $sql = "SELECT * FROM products WHERE id = 3";
+                            $result = mysqli_query($con, $sql);
+                            //var_dump($result);
+                        ?>
+                        <?php $product = mysqli_fetch_assoc($result);  ?>
+                        <h2>Price: Rs. <?php echo $product['amount']; ?>/month</h2>
                         <a href="registerpage.php"><button class="payment_button">Pay</button></a>
                     </div>
                 </div>

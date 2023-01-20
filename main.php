@@ -104,24 +104,25 @@ session_start();
                                     <div class="pbody">
                                           <img src="images/good.png" alt="good image" width="250px">
                                           <ul>
-                                                <li>collected once per week</li>
-                                                <li>live location feature</li>
-                                                <li>email notification</li>
-
+                                                <li>~Collected once per week</li>
+                                                <li>~Live location feature</li>
+                                                <li>~Email notification</li>   
                                           </ul>
-                                          <?php include 'database.php';
-                                          $sql = "SELECT * FROM products WHERE id = 1";
-                                          $result = mysqli_query($con, $sql);
-                                          //var_dump($result);
+                                          <div class="price_body">
+                                                <?php include 'database.php';
+                                                $sql = "SELECT * FROM products WHERE id = 1";
+                                                $result = mysqli_query($con, $sql);
+                                                //var_dump($result);
 
-                                          ?>
-                                          <?php $product = mysqli_fetch_assoc($result);  ?>
-                                          <p class="card-text">Rs. <?php echo $product['amount']; ?></p>
-                                          <form method="post" action="checkout.php">
-                                                <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
-                                                <input type="submit" name="submit" value="Buy Now" class="login_button">
-                                          </form>
+                                                ?>
+                                                <?php $product = mysqli_fetch_assoc($result);  ?>
+                                                <h2>Price: Rs. <?php echo $product['amount']; ?>/month</h2>
+                                                <form method="post" action="checkout.php">
+                                                      <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
+                                                      <input type="submit" name="submit" value="Buy Now" class="payment_button">
+                                                </form>
 
+                                          </div>
 
                                     </div>
                               </div>
@@ -132,12 +133,27 @@ session_start();
                                     <div class="pbody">
                                           <img src="images/better.png" alt="good image" width="250px">
                                           <ul>
-                                                <li>collected once per week</li>
-                                                <li>live location feature</li>
-                                                <li>email notification</li>
+                                                <li>~Collected twice per week</li>
+                                                <li>~Live location feature</li>
+                                                <li>~Email notification</li>  
+                                                <li>~Sms notification</li> 
 
                                           </ul>
-                                          <button class="login_button">Pay</button>
+                                          <div class="price_body">
+                                                <?php include 'database.php';
+                                                $sql = "SELECT * FROM products WHERE id = 2";
+                                                $result = mysqli_query($con, $sql);
+                                                //var_dump($result);
+
+                                                ?>
+                                                <?php $product = mysqli_fetch_assoc($result);  ?>
+                                                <h2>Price: Rs. <?php echo $product['amount']; ?>/month</h2>
+                                                <form method="post" action="checkout.php">
+                                                      <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
+                                                      <input type="submit" name="submit" value="Buy Now" class="payment_button">
+                                                </form>
+
+                                          </div>
                                     </div>
                               </div>
                               <div class="payment_element">
@@ -147,12 +163,28 @@ session_start();
                                     <div class="pbody">
                                           <img src="images/best.png" alt="good image" width="250px">
                                           <ul>
-                                                <li>collected <em>once</em> per week</li>
-                                                <li>live location feature</li>
-                                                <li>email notification</li>
+                                                <li>~Collected <em>Thrice</em> per week</li>
+                                                <li>~Live location feature</li>
+                                                <li>~Email notification</li>
+                                                <li>~Sms notification</li> 
 
                                           </ul>
-                                          <button class="login_button">Pay</button>
+                                          
+                                          <div class="price_body">
+                                                <?php include 'database.php';
+                                                $sql = "SELECT * FROM products WHERE id = 3";
+                                                $result = mysqli_query($con, $sql);
+                                                //var_dump($result);
+
+                                                ?>
+                                                <?php $product = mysqli_fetch_assoc($result);  ?>
+                                                <h2>Price: Rs. <?php echo $product['amount']; ?>/month</h2>
+                                                <form method="post" action="checkout.php">
+                                                      <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
+                                                      <input type="submit" name="submit" value="Buy Now" class="payment_button">
+                                                </form>
+
+                                          </div>
                                     </div>
                               </div>
                         </div>
