@@ -2,7 +2,7 @@
 include('database.php');
 session_start();
 ?>
-<?php if ($_SESSION['role'] == 'manager' || $_SESSION['role'] == 'super admin') {
+<?php if ($_SESSION['role'] == 'super admin') {
 ?>
       <!DOCTYPE html>
       <html lang="en">
