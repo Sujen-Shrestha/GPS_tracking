@@ -110,7 +110,7 @@ session_start();
                                                             $con = mysqli_connect('localhost', 'sagar', 'Iamsagar456@');
                                                             mysqli_select_db($con, 'sagar');
 
-                                                            $result = mysqli_query($con, "SELECT SUM(total) as total FROM orders GROUP BY total");
+                                                            $result = mysqli_query($con, "SELECT SUM(total) as total FROM orders");
                                                             while ($row = mysqli_fetch_array($result)) {
                                                                   echo "Rs.";
                                                                   echo $row['total'];
