@@ -41,18 +41,17 @@ session_start();
             <?php include './user/header-user.php'; ?>
             <main>
                   <div class="content homepage active">
-                      
-                  <?php if (isset($_GET['error'])) {
-                        if ($_GET['error'] == "payment_s") {
-                        echo "<font color='red'>
+
+                        <?php if (isset($_GET['error'])) {
+                              if ($_GET['error'] == "payment_s") {
+                                    echo "<font color='red'>
                               <p align='center'>Payment Sucessful</p>
                         </font>";
-                        }
-                        else{
-                        echo "<font color='red'>
+                              } else {
+                                    echo "<font color='red'>
                               <p align='center'>Error</p>
                         </font>";
-                        }
+                              }
                         }
                         ?>
                         <div class="cards">
@@ -67,7 +66,21 @@ session_start();
                               </div>
                               <div class="card-single">
                                     <div>
-                                          <h1>Active</h1>
+                                          <h1>
+                                                <?php
+                                                $con = mysqli_connect('localhost', 'sagar', 'Iamsagar456@');
+                                                mysqli_select_db($con, 'sagar');
+                                                $number = $_SESSION['number'];
+                                                $result_1 = mysqli_query($con, "SELECT status FROM orders WHERE user_number='$number'");
+                                                while ($row = mysqli_fetch_array($result_1)) {
+                                                      if ($row['status'] == 0) {
+                                                            echo "Not paid";
+                                                      } else {
+                                                            echo "Paid";
+                                                      }
+                                                }
+                                                ?>
+                                          </h1>
                                           <span>Account-Status</span>
                                     </div>
                                     <div>
@@ -76,8 +89,26 @@ session_start();
                               </div>
                               <div class="card-single-time">
                                     <div>
-                                          <h1>3</h1>
-                                          <span>Time-Remaining</span>
+                                          <h1>
+                                                <?php
+                                    $con = mysqli_connect('localhost', 'sagar', 'Iamsagar456@');
+                                    mysqli_select_db($con, 'sagar');
+                                    $number = $_SESSION['number'];
+                                    $result_1 = mysqli_query($con, "SELECT created_at FROM orders WHERE user_number='$number'");
+                                    while ($row = mysqli_fetch_array($result_1)) {
+                                          $date= $row['created_at'];
+                                    }
+                                    $result_4 = mysqli_query($con, "SELECT DATE_ADD('$date',INTERVAL 30 DAY) as Date");
+                                    while ($row = mysqli_fetch_array($result_4)) {
+                                          echo $row['Date'];
+                                    }
+
+                                          
+                                                ?>
+
+
+                                          </h1>
+                                          <span>Account Expiry Date</span>
                                     </div>
                                     <div>
                                           <span class="las la-calendar-times"></span>
@@ -85,7 +116,19 @@ session_start();
                               </div>
                               <div class="card-single">
                                     <div>
-                                          <h1>Gongabu</h1>
+                                          <h1>
+                                                <?php
+                                                $con = mysqli_connect('localhost', 'sagar', 'Iamsagar456@');
+                                                mysqli_select_db($con, 'sagar');
+                                                $number = $_SESSION['number'];
+                                                $result_1 = mysqli_query($con, "SELECT location FROM usertable WHERE number='$number'");
+                                                while ($row = mysqli_fetch_array($result_1)) {
+                                                      echo $row['location'];
+                                                }
+                                                ?>
+
+
+                                          </h1>
                                           <span>My-Area</span>
                                     </div>
                                     <div>
@@ -106,7 +149,7 @@ session_start();
                                           <ul>
                                                 <li>~Collected once per week</li>
                                                 <li>~Live location feature</li>
-                                                <li>~Email notification</li>   
+                                                <li>~Email notification</li>
                                           </ul>
                                           <div class="price_body">
                                                 <?php include 'database.php';
@@ -135,8 +178,8 @@ session_start();
                                           <ul>
                                                 <li>~Collected twice per week</li>
                                                 <li>~Live location feature</li>
-                                                <li>~Email notification</li>  
-                                                <li>~Sms notification</li> 
+                                                <li>~Email notification</li>
+                                                <li>~Sms notification</li>
 
                                           </ul>
                                           <div class="price_body">
@@ -166,10 +209,10 @@ session_start();
                                                 <li>~Collected <em>Thrice</em> per week</li>
                                                 <li>~Live location feature</li>
                                                 <li>~Email notification</li>
-                                                <li>~Sms notification</li> 
+                                                <li>~Sms notification</li>
 
                                           </ul>
-                                          
+
                                           <div class="price_body">
                                                 <?php include 'database.php';
                                                 $sql = "SELECT * FROM products WHERE id = 3";

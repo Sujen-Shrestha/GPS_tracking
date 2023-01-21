@@ -2,15 +2,15 @@
 session_start();
 include 'database.php';
 if (isset($_POST['change_btn'])) {
-      $id = $_POST['change_id'];     
-      $query ="UPDATE orders set status = 0 WHERE orders.id = $id";
+      $id = $_POST['change_id'];
+      $query = "UPDATE usertable set status = 1 WHERE id = $id";
       $query_run = mysqli_query($con, $query);
 
       if ($query_run) {
 ?>
             <script>
-                  alert('Account disabled');
-                  window.location.href = 'adminpanel.php';
+                  alert('Account Activated');
+                  window.location.href = 'managerpanel.php';
             </script>
       <?php
 
@@ -18,7 +18,7 @@ if (isset($_POST['change_btn'])) {
       ?>
             <script>
                   alert('Error');
-                  window.location.href = 'adminpanel.php?success';
+                  window.location.href = 'managerpanel.php';
             </script>
 <?php
       }

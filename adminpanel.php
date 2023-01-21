@@ -374,7 +374,10 @@ session_start();
                                                       <td>Number</td>
                                                       <td>Amount</td>
                                                       <td>Last payment</td>
+                                                      <td>ID</td>
+
                                                       <td>Payment Status</td>
+
                                                       <td>Change status</td>
 
                                                 </tr>
@@ -383,7 +386,7 @@ session_start();
                                                 <?php
                                                 $con = mysqli_connect('localhost', 'sagar', 'Iamsagar456@');
                                                 mysqli_select_db($con, 'sagar');
-                                                $result = mysqli_query($con, "SELECT id,name,location,number,amount,last_payment,payment_status FROM usertable INNER JOIN payment ON usertable.id = payment.user_id");
+                                                $result = mysqli_query($con, "SELECT orders.id as id ,name,location,number,total,created_at,orders.status as status FROM usertable INNER JOIN orders ON usertable.number = orders.user_number");
                                                 while ($row = mysqli_fetch_array($result)) {
                                                 ?>
                                                       <tr>
@@ -391,16 +394,25 @@ session_start();
                                                             <td><?php echo $row['name']; ?></td>
                                                             <td><?php echo $row['location']; ?></td>
                                                             <td><?php echo $row['number']; ?> </td>
-                                                            <td><?php echo $row['amount']; ?> </td>
-                                                            <td><?php echo $row['last_payment']; ?> </td>
+                                                            <td><?php echo $row['total']; ?> </td>
+                                                            <td><?php echo $row['created_at']; ?> </td>
+                                                            <td><?php echo $row['id']; ?> </td>
+
                                                             <td>
 
                                                                   <?php
-                                                                  if ($row['payment_status'] == null) {
+                                                                  if ($row['status'] == 0) {
                                                                         echo "Payment Due &#10060;";
                                                                   } else {
                                                                         echo "Payment Cleared &#9989;";
-                                                                  }
+                                                      }
+                                                      $con = mysqli_connect('localhost', 'sagar', 'Iamsagar456@');
+                                                      mysqli_select_db($con, 'sagar');
+                                                      $number = $_SESSION['number'];
+                                                      $result_1 = mysqli_query($con, "SELECT location FROM admintable WHERE number='$number'");
+                                                      while ($row = mysqli_fetch_array($result_1)) {
+                                                            $l =  $row['location'];
+                                                      }
                                                                   ?>
 
                                                             </td>
