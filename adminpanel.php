@@ -279,7 +279,7 @@ session_start();
                                                       ?>
                                                 </select>
                                                 <br><input class="un" type="text" name="name" placeholder="Name of Manager">
-                                                <input class="un" type="number" name="number" placeholder="Manager Number">
+                                                <input class="un" type="number" name="number" placeholder="Manager Phone Number">
                                                 <input class="un" type=" password" name="password" placeholder="Manager Password">
 
                                                 <select class="un" name="location" id="location" required>
@@ -369,14 +369,17 @@ session_start();
                                     <table width="100%">
                                           <thead>
                                                 <tr>
+                                                      <td>ID</td>
                                                       <td>Customer Name</td>
                                                       <td>location</td>
                                                       <td>Number</td>
                                                       <td>Amount</td>
                                                       <td>Last payment</td>
-                                                      <td>ID</td>
+
+
 
                                                       <td>Payment Status</td>
+                                                      <td>Expiry Date</td>
 
                                                       <td>Change status</td>
 
@@ -391,12 +394,13 @@ session_start();
                                                 ?>
                                                       <tr>
 
+                                                            <td><?php echo $row['id']; ?> </td>
                                                             <td><?php echo $row['name']; ?></td>
                                                             <td><?php echo $row['location']; ?></td>
                                                             <td><?php echo $row['number']; ?> </td>
                                                             <td><?php echo $row['total']; ?> </td>
                                                             <td><?php echo $row['created_at']; ?> </td>
-                                                            <td><?php echo $row['id']; ?> </td>
+
 
                                                             <td>
 
@@ -405,16 +409,15 @@ session_start();
                                                                         echo "Payment Due &#10060;";
                                                                   } else {
                                                                         echo "Payment Cleared &#9989;";
-                                                      }
-                                                      $con = mysqli_connect('localhost', 'sagar', 'Iamsagar456@');
-                                                      mysqli_select_db($con, 'sagar');
-                                                      $number = $_SESSION['number'];
-                                                      $result_1 = mysqli_query($con, "SELECT location FROM admintable WHERE number='$number'");
-                                                      while ($row = mysqli_fetch_array($result_1)) {
-                                                            $l =  $row['location'];
-                                                      }
+                                                                  }
                                                                   ?>
 
+                                                            </td>
+                                                            <td>
+                                                                  <?php
+                                                                  $date = $row['created_at'];
+                                                                  echo date('Y-m-d', strtotime($date . ' + 30 days'));
+                                                                  ?>
                                                             </td>
                                                             <td>
                                                                   <form action="change_payment.php" method="post">
@@ -422,8 +425,10 @@ session_start();
                                                                         <button class="small_button" type="submit" name="change_btn" class="btn_btn_danger btn btn-info">Disable</button>
                                                                   </form>
                                                             </td>
+
                                                       </tr>
                                                 <?php } ?>
+                                              
                                           </tbody>
                                     </table>
                               </div>
