@@ -1,11 +1,12 @@
 <!--Admin ko sidebar ko part ko code-->
-
+<?php session_start(); ?>
 <div class="sidebar">
             <div class="sidebar-brand">
                   <h2><span class="las la-dumpster"></span><span>GPS Tracker System</span></h2>
             </div>
             <div class="sidebar-menu">
                   <ul>
+                    
                             <li>
                               <a href="#" class="dashboard active"><span class="las la-igloo" ></span><span>Dashboard</span></a>
                             </li>

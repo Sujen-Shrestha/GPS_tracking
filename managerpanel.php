@@ -36,6 +36,7 @@ session_start();
       <body>
             <input type="checkbox" id="nav-toggle">
             <?php include './manager/sidebar-manager.php'; ?>
+
             <div class="main-content">
                   <?php include './manager/header-manager.php'; ?>
                   <main>
@@ -66,7 +67,30 @@ session_start();
                                     </div>
                                     <div class="card-single">
                                           <div>
-                                                <h1>Yes</h1>
+                                                <h1>
+                                                
+                                                      <?php
+                                                      $con = mysqli_connect('localhost', 'sagar', 'Iamsagar456@');
+                                                      mysqli_select_db($con, 'sagar');
+   
+                                                      $number = $_SESSION['number'];
+                                                      $result_1 = mysqli_query($con, "SELECT location FROM admintable WHERE number='$number'");
+                                                      while ($row = mysqli_fetch_array($result_1)) {
+                                                            $l =  $row['location'];
+                                                      }
+
+                                                      $result_1 = mysqli_query($con, "SELECT * FROM schedule WHERE date = cast(Date(Now()) as Date) AND location = '$l'");
+                                                      if ($result = mysqli_num_rows($result_1) > 0) {
+                                                            // there are results in $result
+                                                            echo "YES";
+                                                      } else {
+                                                            // no results
+                                                      echo"NO";
+                                                      }                                                
+                                                      ?>
+
+
+                                                </h1>
                                                 <span>Schedule-today</span>
                                           </div>
                                           <div>
@@ -198,72 +222,71 @@ session_start();
                                           ?>
                                     </select>
 
-                                    <div class="login_button_body" style="margin-left: 41%;
-    padding-bottom: 3%;">
-                                          <button class="login_button" id="insert_btn" type="submit" value="insert_btn" name="insert_btn" >Submit</button>
+                                    <div class="login_button_body" style="margin-left: 41%; padding-bottom: 3%;">
+                                          <button class="login_button" id="insert_btn" type="submit" value="insert_btn" name="insert_btn">Submit</button>
 
                                     </div>
 
 
                               </form>
                         </div>
+                        <div class="content mappage in-active"> <!-- MAP div-->
+                              <div id="map" class="map-panel"></div>
+                              <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+                              <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+                              <script>
+                                    <?php
+                                    $con = mysqli_connect('localhost', 'sagar', 'Iamsagar456@');
+                                    mysqli_select_db($con, 'sagar');
 
+                                    $result = mysqli_query($con, "SELECT * FROM locations");
+                                    while ($row = mysqli_fetch_array($result)) {
+                                          $lat_d = $row['latitude'];
+                                          $long_d = $row['longitude'];
+                                    }
+
+                                    $result = array(array('latitude' => $lat_d, 'longitude' => $long_d));
+                                    // Set the latitude and longitude coordinates of the location
+                                    $latitude = $lat_d;
+                                    $longitude = $long_d;
+                                    ?>
+                                    const lat = <?php echo $latitude; ?>;
+                                    const long = <?php echo $longitude; ?>;;
+                                    // Creating map options
+
+
+                                    var mapOptions = {
+                                          center: [lat, long],
+                                          zoom: 13
+                                    }
+
+                                    // Creating a map object
+                                    var map = new L.map('map', mapOptions);
+
+                                    // Creating a Layer object
+                                    var layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+
+                                    // Adding layer to the map
+                                    map.addLayer(layer);
+
+                                    const leafletMarkers = L.layerGroup([
+
+
+                                          //adding marker
+                                          <?php
+
+                                          $result = mysqli_query($con, "SELECT * FROM locations");
+                                          while ($row = mysqli_fetch_array($result)) {
+
+                                                echo "new L.Marker([" . $row['latitude'] . ", " . $row['longitude'] . "]),\n";
+                                          } ?>
+                                    ]);
+                                    leafletMarkers.addTo(map);
+                              </script>
+                        </div>
             </div>
 
-            <div class="content mappage in-active">
-                  <div id="map" class="map-panel"></div>
-                  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-                  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-                  <script>
-                        <?php
-                        $con = mysqli_connect('localhost', 'sagar', 'Iamsagar456@');
-                        mysqli_select_db($con, 'sagar');
 
-                        $result = mysqli_query($con, "SELECT * FROM locations");
-                        while ($row = mysqli_fetch_array($result)) {
-                              $lat_d = $row['latitude'];
-                              $long_d = $row['longitude'];
-                        }
-
-                        $result = array(array('latitude' => $lat_d, 'longitude' => $long_d));
-                        // Set the latitude and longitude coordinates of the location
-                        $latitude = $lat_d;
-                        $longitude = $long_d;
-                        ?>
-                        const lat = <?php echo $latitude; ?>;
-                        const long = <?php echo $longitude; ?>;;
-                        // Creating map options
-
-
-                        var mapOptions = {
-                              center: [lat, long],
-                              zoom: 13
-                        }
-
-                        // Creating a map object
-                        var map = new L.map('map', mapOptions);
-
-                        // Creating a Layer object
-                        var layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
-
-                        // Adding layer to the map
-                        map.addLayer(layer);
-
-                        const leafletMarkers = L.layerGroup([
-
-
-                              //adding marker
-                              <?php
-
-                              $result = mysqli_query($con, "SELECT * FROM locations");
-                              while ($row = mysqli_fetch_array($result)) {
-
-                                    echo "new L.Marker([" . $row['latitude'] . ", " . $row['longitude'] . "]),\n";
-                              } ?>
-                        ]);
-                        leafletMarkers.addTo(map);
-                  </script>
-            </div>
 
             <div class="content accountpage in-active">
                   <p>account page</p>

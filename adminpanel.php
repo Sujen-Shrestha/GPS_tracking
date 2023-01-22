@@ -193,26 +193,21 @@ session_start();
                                                       <?php
                                                       $con = mysqli_connect('localhost', 'sagar', 'Iamsagar456@');
                                                       mysqli_select_db($con, 'sagar');
-                                                      $result = mysqli_query($con, "SELECT * FROM usertable");
+      $result = mysqli_query($con, "SELECT name,number,location,orders.status as status FROM usertable INNER JOIN orders ON usertable.number = orders.user_number");
                                                       while ($row = mysqli_fetch_array($result)) {
                                                       ?>
                                                             <tr>
-
                                                                   <td><?php echo $row['name']; ?></td>
                                                                   <td><?php echo $row['number']; ?></td>
                                                                   <td><?php echo $row['location']; ?> </td>
-
-                                                                  <td>
-                                                                        <?php
-                                                                        if ($row['payment_status'] == null) {
+                                                                  <td> <?php
+                                                                        if ($row['status'] == 0) {
                                                                               echo "Payment Due &#10060;";
                                                                         } else {
                                                                               echo "Payment Cleared &#9989;";
                                                                         }
                                                                         ?>
                                                                   </td>
-
-
                                                             </tr>
                                                       <?php } ?>
                                                 </tbody>
@@ -428,7 +423,7 @@ session_start();
 
                                                       </tr>
                                                 <?php } ?>
-                                              
+
                                           </tbody>
                                     </table>
                               </div>

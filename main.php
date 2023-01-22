@@ -3,7 +3,7 @@ include('database.php');
 session_start();
 
 
-
+                        if ($number = $_SESSION['number']){
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,7 +45,22 @@ session_start();
                         <div class="cards">
                               <div class="card-single">
                                     <div>
-                                          <h1>Yes</h1>
+                                          <h1>
+                                                <?php
+                                                $con = mysqli_connect('localhost', 'sagar', 'Iamsagar456@');
+                                                mysqli_select_db($con, 'sagar');
+                                                $result_1 = mysqli_query($con, "SELECT * FROM schedule WHERE date = cast(Date(Now()) as Date) AND location = '$l'");
+                                                if ($result = mysqli_num_rows($result_1) > 0) {
+                                                      // there are results in $result
+                                                      echo "YES";
+                                                } else {
+                                                      // no results
+                                                      echo "NO";
+                                                }
+                                                ?>
+
+
+                                          </h1>
                                           <span>Schedule-today</span>
                                     </div>
                                     <div>
@@ -220,11 +235,47 @@ session_start();
                         </div>
                   </div>
 
+
+
                   <div class="content schedulepage in-active">
-                        <p>schedule page</p>
+                        <div class="table-contact-panel">
+                              <h3>Schedule</h3>
+                              <table width="100%">
+                                    <thead>
+                                          <tr>
+                                                <td>Date</td>
+                                                <td>Message</td>
+                                                <td>location</td>
+                                          </tr>
+                                    </thead>
+                                    <tbody>
+                                          <?php
+                                          $con = mysqli_connect('localhost', 'sagar', 'Iamsagar456@');
+                                          mysqli_select_db($con, 'sagar');
+                                          $number = $_SESSION['number'];
+                                          $sql = mysqli_query($con, "SELECT location From usertable WHERE number= '$number'");
+                                          while ($row = mysqli_fetch_array($sql)) {
+                                                $l = $row['location'];
+                                          }
 
+                                          $result_1 = mysqli_query($con, "SELECT * FROM schedule WHERE location='$l' ORDER BY date desc limit 3");
+                                          while ($row = mysqli_fetch_array($result_1)) {
+                                          ?>
+                                                <tr>
+                                                      <td><?php echo $row['date']; ?></td>
+                                                      <td><?php echo $row['msg']; ?></td>
+                                                      <td><?php echo $row['location']; ?></td>
+
+
+                                                </tr>
+
+                                          <?php }
+
+                                          ?>
+                                    </tbody>
+                              </table>
+                        </div>
                   </div>
-
 
 
 
@@ -315,5 +366,15 @@ session_start();
       </div>
 </body>
 
+      <?php } 
 
+else{
+      ?>
+<script>
+      alert("Login Again");
+      window.location.href = 'index1.php';      
+</script>
+      <?php 
+}
+?>
 </html>
