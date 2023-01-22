@@ -34,6 +34,7 @@
             <form class="form1" name="myform" action="register.php" method="POST" enctype="multipart/form-data">
                   <p class="sign" align="center">Register Here</p>
                   <input class="un" type="text" name="name" id="name" placeholder="Full Name" required></input>
+                  <input class="un" type="email" name="email" id="email" placeholder="User Email" required></input>
 
 
 

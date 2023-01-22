@@ -106,12 +106,10 @@ session_start();
                                                 $date = $row['created_at'];
                                                 echo date('Y-m-d', strtotime($date . ' + 30 days'));
                                                 ?>
-
-
-
                                           </h1>
-                                    </div>
-                                    <span>Account Expiry Date</span>
+                                    
+                                          <span>Account Expiry Date</span>
+                                          </div>
                                     <div>
                                           <span class="las la-calendar-times"></span>
                                     </div>
@@ -320,7 +318,7 @@ session_start();
 
                                           var mapOptions = {
                                                 center: [lat, long],
-                                                zoom: 7
+                                                zoom: 14
                                           }
 
                                           // Creating a map object
@@ -358,7 +356,122 @@ session_start();
 
 
                   <div class="content accountpage in-active">
-                        <p>account page</p>
+                        <div class="login_body" style="margin-top:1rem">
+                              <?php
+                              if (isset($_GET['error'])) {
+                                    if ($_GET['error'] == "already_exist") {
+                                          echo "<font color='red'><p align='center'>Number already exist.</p></font>";
+                                    }
+                              }
+                              ?>
+                              <form class="form1" name="myform" action="register.php" method="POST" enctype="multipart/form-data">
+                                    <p class="sign" align="center">Edit Account</p>
+                                    <input class="un" type="text" name="name" id="name" placeholder="Full Name" required></input>
+                                    <input class="un" type="email" name="email" id="email" placeholder="User Email" required></input>
+
+
+
+                                    <!--Database bata tannu parcha yeta-->
+                                    <select class="un" name="location" id="location" required>
+                                                <option value="" disabled selected>Choose your area </option>
+                                                <?php
+                                                include_once 'database.php';
+                                                $sql = mysqli_query($con, "SELECT * From area");
+                                                $row = mysqli_num_rows($sql);
+                                                while ($row = mysqli_fetch_array($sql)) {
+                                                      echo "<option value='" . $row['area'] . "'>" . $row['area'] . "</option>";
+                                                }
+                                                ?>
+                                          </select>
+
+                                    <!--location-->
+                                    <span class="co-input">
+                                          <input class="un" type="text" id="lat" name="latitude" placeholder="Latitude">
+                                          <input class="un" type="text" id="long" name="longitude" placeholder="Longitude">
+                                    </span>
+                                    <div class="button-wrapper">
+                                          <button class="small_button" onclick="geolocator()">
+                                                Get location
+                                          </button><br>
+                                    </div>
+
+
+                                    <script>
+                                          var paraGraph = document.getElementById("paraGraph");
+                                          var user_loc = navigator.geolocation;
+
+                                          function geolocator() {
+                                                if (user_loc) {
+                                                      user_loc.getCurrentPosition(success);
+                                                } else {
+                                                      "Your browser doesn't support geolocation API";
+                                                }
+                                          }
+
+                                          function success(data) {
+                                                var lat = data.coords.latitude;
+                                                var long = data.coords.longitude;
+                                                document.getElementById('lat').value = lat;
+                                                document.getElementById('long').value = long;
+
+                                                paraGraph.innerHTML = "Latitude: " +
+                                                      lat +
+                                                      "<br>Longitude: " +
+                                                      long;
+                                          }
+                                    </script>
+                                    <input class="un" type="number" name="number" id="number" placeholder="Mobile Number" pattern="(\+977)?[9][6-9]\d{8}" required></input>
+                                    <span class="span_class" id="span_class" align="center"></span>
+                                    <input class="un" type="password" name="password" id="password" placeholder="Enter your new password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                                    <span class="span_class1" id="span_class1" align="center"></span>
+                                    <div class="login_button_body" style="padding-botton:1rem;">
+                                          <input class="show_pass" type="checkbox" onclick="myFunction()">Show Password<br>
+                                          <button class="login_button" id="submit_btn" type="submit" value="submit_btn name=" submit_btn">Register</button>
+                                    </div>
+                                    <script type="text/javascript">
+                                          function goBack() {
+                                                window.location.href = 'index1.php?sucess';
+                                          }
+
+                                          function myFunction() {
+                                                var x = document.getElementById("password");
+                                                if (x.type === "password") {
+                                                      x.type = "text";
+                                                } else {
+                                                      x.type = "password";
+                                                }
+                                          }
+                                          let password = document.getElementById('password');
+                                          let number = document.getElementById('number');
+                                          let span = document.getElementsByTagName('span');
+
+                                          password.onkeyup = function() {
+                                                const regexo = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+                                                if (regexo.test(password.value)) {
+
+                                                      document.getElementById('span_class1').innerText = "Your password is valid";
+                                                      document.getElementById('span_class1').style.color = 'Green';
+
+                                                } else {
+                                                      document.getElementById('span_class1').innerText = "**password must atleast one uppercase,lowercase letter and Number ";
+                                                      document.getElementById('span_class1').style.color = 'Red';
+                                                }
+                                          }
+                                          number.onkeyup = function() {
+                                                const regexoo = /(\+977)?[9][6-9]\d{8}/;
+                                                if (regexoo.test(number.value)) {
+                                                      const box = document.getElementById('box');
+                                                      document.getElementById('span_class').innerText = "Your Mobile Number is valid";
+                                                      document.getElementById('span_class').style.color = 'Green';
+
+                                                } else {
+                                                      document.getElementById('span_class').innerText = "**Your Mobile Number is invalid ";
+                                                      document.getElementById('span_class').style.color = 'Red';
+                                                }
+                                          }
+                                    </script>
+                              </form>
+                        </div>
                   </div>
 
 
