@@ -103,13 +103,13 @@ if ($number = $_SESSION['number']) {
                                                             $status = $row['status'];
                                                       }
 
-      if($status == 1){
+                                                      if($status == 1){
                                                             $date = $row['created_at'];
                                                             echo date('Y-m-d', strtotime($date . ' + 30 days'));
-      }
-      else{
-            echo "Payment must be done....";
-      }
+                                                      }
+                                                      else{
+                                                            echo "Payment must be done....";
+                                                      }
 
                                                  
                                                       ?>

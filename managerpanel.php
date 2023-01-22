@@ -118,11 +118,12 @@ session_start();
 
 
                                     </div>
-                                    <div class="recent-grid">
+                              </div>
+                              <div class="recent-grid">
                                           <div class="projects">
                                                 <div class="card">
                                                       <div class="card-header">
-                                                            <h3>Recent added managers</h3>
+                                                            <h3>Recent added schedules</h3>
                                                             <button> See all <span class="las al-arrow-right"></span></button>
                                                       </div>
                                                       <div class="card-body">
@@ -170,7 +171,6 @@ session_start();
 
                                           </div>
                                     </div>
-                              </div>
                         </div>
 
                         <div class="content customerpage in-active">
@@ -181,6 +181,7 @@ session_start();
                                                       <tr>
                                                             <td>Name</td>
                                                             <td>Number</td>
+                                                            <td>Email</td>
                                                             <td>Location</td>
                                                             <td>Account Status</td>
                                                             <td>
@@ -209,6 +210,7 @@ session_start();
 
                                                                   <td><?php echo $row['name']; ?></td>
                                                                   <td><?php echo $row['number']; ?></td>
+                                                                  <td><?php echo $row['email']; ?></td>
                                                                   <td><?php echo $row['location']; ?> </td>
 
                                                                   <td>
