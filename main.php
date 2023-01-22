@@ -269,7 +269,7 @@ session_start();
 
                                           var mapOptions = {
                                                 center: [lat, long],
-                                                zoom: 13
+                                                zoom: 7
                                           }
 
                                           // Creating a map object
