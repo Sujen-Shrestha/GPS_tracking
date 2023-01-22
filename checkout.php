@@ -25,26 +25,50 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <html>
 
 <head>
+       <!--for reloading-->
+       <meta http-equiv="Cache-control" content="no-cache">
+      <meta content="width=device-width, initial-scale=1" name="viewport" />
+      <!--css for whole website-->
+      <link rel="stylesheet" href=".\css\style.css">
+      <!--css for responsive-->
+      <link rel="stylesheet" href=".\css\responsive.css">
+      <!--css for animations-->
+      <link rel="stylesheet" href=".\css\animate.css">
+      <!--link to use google fonts-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400&display=swap" rel="stylesheet">
+      <!--for favicon-->
+      <link rel="icon" type="images/logo.png" href="images/logo.png">
+      <title>Check-out Page</title>
 </head>
 
 <body>
-                              <div class="col-md-6">
-                                    <h3>Pay With</h3>
-                                    <ul class="list-group">
-                                          <li class="list-group-item">
-                                                <form action="https://uat.esewa.com.np/epay/main" method="POST">
-                                                      <input value="<?php echo $total; ?>" name="tAmt" type="hidden">
-                                                      <input value="<?php echo $total; ?>" name="amt" type="hidden">
-                                                      <input value="0" name="txAmt" type="hidden">
-                                                      <input value="0" name="psc" type="hidden">
-                                                      <input value="0" name="pdc" type="hidden">
-                                                      <input value="epay_payment" name="scd" type="hidden">
-                                                      <input value="<?php echo $invoice_no; ?>" name="pid" type="hidden">
-                                                      <input value="http://localhost/GPS_tracking/GPS_tracking/esewa_payment_success.php" type="hidden" name="su">
-                                                      <input value="http://localhost/GPS_tracking/GPS_tracking/esewa_payment_failed.php" type="hidden" name="fu">
-                                                      <input type="image" src="images/esewa.png">
-                                          </li>
-                                    </ul>
+                              <div class="paymentbody">
+                                    <img src="images/checkout.png" alt="checkout image" width="400px">
+                                    <div class="pbody">
+                                          <div class="ptitle">
+                                                <h1 class="question">Pay with</h1>
+                                          </div>
+                                          <div class="pbody_body">
+                                                <ul class="list-group">
+                                                      <li class="list-group-item">
+                                                            <form action="https://uat.esewa.com.np/epay/main" method="POST">
+                                                                  <input value="<?php echo $total; ?>" name="tAmt" type="hidden">
+                                                                  <input value="<?php echo $total; ?>" name="amt" type="hidden">
+                                                                  <input value="0" name="txAmt" type="hidden">
+                                                                  <input value="0" name="psc" type="hidden">
+                                                                  <input value="0" name="pdc" type="hidden">
+                                                                  <input value="epay_payment" name="scd" type="hidden">
+                                                                  <input value="<?php echo $invoice_no; ?>" name="pid" type="hidden">
+                                                                  <input value="http://localhost/GPS_tracking/GPS_tracking/esewa_payment_success.php" type="hidden" name="su">
+                                                                  <input value="http://localhost/GPS_tracking/GPS_tracking/esewa_payment_failed.php" type="hidden" name="fu">
+                                                                  <input type="image" src="images/esewa.png" width="100px">
+                                                      </li>
+                                                </ul>
+                                          </div>
+                                          
+                                    </div>
+                                    
                               </div>
 </body>
 
