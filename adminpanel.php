@@ -437,10 +437,4 @@ session_start();
 <?php } else {
       header('location:adminlogin.php');
 }
-
-?>
-
-
-<?php
-//$sql = "SELECT amount,name FROM `payment`INNER JOIN usertable ON payment.user_id = usertable.id";
 ?>

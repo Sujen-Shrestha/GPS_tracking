@@ -68,11 +68,11 @@ session_start();
                                     <div class="card-single">
                                           <div>
                                                 <h1>
-                                                
+
                                                       <?php
                                                       $con = mysqli_connect('localhost', 'sagar', 'Iamsagar456@');
                                                       mysqli_select_db($con, 'sagar');
-   
+
                                                       $number = $_SESSION['number'];
                                                       $result_1 = mysqli_query($con, "SELECT location FROM admintable WHERE number='$number'");
                                                       while ($row = mysqli_fetch_array($result_1)) {
@@ -85,8 +85,8 @@ session_start();
                                                             echo "YES";
                                                       } else {
                                                             // no results
-                                                      echo"NO";
-                                                      }                                                
+                                                            echo "NO";
+                                                      }
                                                       ?>
 
 
@@ -115,8 +115,61 @@ session_start();
                                           <div>
                                                 <span class="las la-map-marker"></span>
                                           </div>
-                                    </div>
 
+
+                                    </div>
+                                    <div class="recent-grid">
+                                          <div class="projects">
+                                                <div class="card">
+                                                      <div class="card-header">
+                                                            <h3>Recent added managers</h3>
+                                                            <button> See all <span class="las al-arrow-right"></span></button>
+                                                      </div>
+                                                      <div class="card-body">
+                                                            <div class="table-responsive">
+
+                                                                  <table width="100%">
+                                                                        <thead>
+                                                                              <tr>
+                                                                                    <td>Date</td>
+                                                                                    <td>Message</td>
+                                                                                    <td>location</td>
+                                                                              </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                              <?php
+                                                                              $con = mysqli_connect('localhost', 'sagar', 'Iamsagar456@');
+                                                                              mysqli_select_db($con, 'sagar');
+                                                                              $number = $_SESSION['number'];
+                                                                              $sql = mysqli_query($con, "SELECT location From usertable WHERE number= '$number'");
+                                                                              while ($row = mysqli_fetch_array($sql)) {
+                                                                                    $l = $row['location'];
+                                                                              }
+
+                                                                              $result_1 = mysqli_query($con, "SELECT * FROM schedule WHERE location='$l' ORDER BY date desc limit 3");
+                                                                              while ($row = mysqli_fetch_array($result_1)) {
+                                                                              ?>
+                                                                                    <tr>
+                                                                                          <td><?php echo $row['date']; ?></td>
+                                                                                          <td><?php echo $row['msg']; ?></td>
+                                                                                          <td><?php echo $row['location']; ?></td>
+
+
+                                                                                    </tr>
+
+                                                                              <?php }
+
+                                                                              ?>
+                                                                        </tbody>
+                                                                  </table>
+
+                                                            </div>
+
+                                                      </div>
+                                                </div>
+
+                                          </div>
+                                    </div>
                               </div>
                         </div>
 

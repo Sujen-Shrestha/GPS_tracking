@@ -27,29 +27,29 @@
             <?php
             if (isset($_GET['error'])) {
                   if ($_GET['error'] == "already_exist") {
-                        echo "<font color='red'><p align='center'>Number already exist.</p></font>";
+                        echo "<font color='red'><p align='center'>Number OR EMAIL already exist.</p></font>";
                   }
             }
             ?>
             <form class="form1" name="myform" action="register.php" method="POST" enctype="multipart/form-data">
                   <p class="sign" align="center">Register Here</p>
                   <input class="un" type="text" name="name" id="name" placeholder="Full Name" required></input>
-                  <input class="un" type="email" name="email" id="email" placeholder="User Email" required></input>
+                  <input class="un" type="email" name="email" id="email" placeholder="User Email" required pattern="/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/"></input>
 
 
 
                   <!--Database bata tannu parcha yeta-->
                   <select class="un" name="location" id="location" required>
-                              <option value="" disabled selected>Choose your area </option>
-                              <?php
-                              include_once 'database.php';
-                              $sql = mysqli_query($con, "SELECT * From area");
-                              $row = mysqli_num_rows($sql);
-                              while ($row = mysqli_fetch_array($sql)) {
-                                    echo "<option value='" . $row['area'] . "'>" . $row['area'] . "</option>";
-                              }
-                              ?>
-                        </select>
+                        <option value="" disabled selected>Choose your area </option>
+                        <?php
+                        include_once 'database.php';
+                        $sql = mysqli_query($con, "SELECT * From area");
+                        $row = mysqli_num_rows($sql);
+                        while ($row = mysqli_fetch_array($sql)) {
+                              echo "<option value='" . $row['area'] . "'>" . $row['area'] . "</option>";
+                        }
+                        ?>
+                  </select>
 
                   <!--location-->
                   <span class="co-input">

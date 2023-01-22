@@ -29,7 +29,7 @@
             if ($_GET['error'] == "invaliduid") {
                   echo "<font color='red'><p align='center'>Incorrect ID or Password or Not Approved</p></font>";
             } elseif ($_GET['error'] == "sucess") {
-                  echo "<font color='red'><p align='center'>Registeration sucessful</p></font>";
+                  echo "<font color='red'><p align='center'>Registeration sucessful wait for approval....</p></font>";
             }
             }
       ?>
