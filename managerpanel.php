@@ -120,57 +120,57 @@ session_start();
                                     </div>
                               </div>
                               <div class="recent-grid">
-                                          <div class="projects">
-                                                <div class="card">
-                                                      <div class="card-header">
-                                                            <h3>Recent added schedules</h3>
-                                                            <button> See all <span class="las al-arrow-right"></span></button>
-                                                      </div>
-                                                      <div class="card-body">
-                                                            <div class="table-responsive">
-
-                                                                  <table width="100%">
-                                                                        <thead>
-                                                                              <tr>
-                                                                                    <td>Date</td>
-                                                                                    <td>Message</td>
-                                                                                    <td>location</td>
-                                                                              </tr>
-                                                                        </thead>
-                                                                        <tbody>
-                                                                              <?php
-                                                                              $con = mysqli_connect('localhost', 'sagar', 'Iamsagar456@');
-                                                                              mysqli_select_db($con, 'sagar');
-                                                                              $number = $_SESSION['number'];
-                                                                              $sql = mysqli_query($con, "SELECT location From usertable WHERE number= '$number'");
-                                                                              while ($row = mysqli_fetch_array($sql)) {
-                                                                                    $l = $row['location'];
-                                                                              }
-
-                                                                              $result_1 = mysqli_query($con, "SELECT * FROM schedule WHERE location='$l' ORDER BY date desc limit 3");
-                                                                              while ($row = mysqli_fetch_array($result_1)) {
-                                                                              ?>
-                                                                                    <tr>
-                                                                                          <td><?php echo $row['date']; ?></td>
-                                                                                          <td><?php echo $row['msg']; ?></td>
-                                                                                          <td><?php echo $row['location']; ?></td>
-
-
-                                                                                    </tr>
-
-                                                                              <?php }
-
-                                                                              ?>
-                                                                        </tbody>
-                                                                  </table>
-
-                                                            </div>
-
-                                                      </div>
+                                    <div class="projects">
+                                          <div class="card">
+                                                <div class="card-header">
+                                                      <h3>Recent added schedules</h3>
+                                                      <button> See all <span class="las al-arrow-right"></span></button>
                                                 </div>
+                                                <div class="card-body">
+                                                      <div class="table-responsive">
 
+                                                            <table width="100%">
+                                                                  <thead>
+                                                                        <tr>
+                                                                              <td>Date</td>
+                                                                              <td>Message</td>
+                                                                              <td>location</td>
+                                                                        </tr>
+                                                                  </thead>
+                                                                  <tbody>
+                                                                        <?php
+                                                                        $con = mysqli_connect('localhost', 'sagar', 'Iamsagar456@');
+                                                                        mysqli_select_db($con, 'sagar');
+                                                                        $number = $_SESSION['number'];
+                                                                        $sql = mysqli_query($con, "SELECT location From usertable WHERE number= '$number'");
+                                                                        while ($row = mysqli_fetch_array($sql)) {
+                                                                              $l = $row['location'];
+                                                                        }
+
+                                                                        $result_1 = mysqli_query($con, "SELECT * FROM schedule WHERE location='$l' ORDER BY date desc limit 3");
+                                                                        while ($row = mysqli_fetch_array($result_1)) {
+                                                                        ?>
+                                                                              <tr>
+                                                                                    <td><?php echo $row['date']; ?></td>
+                                                                                    <td><?php echo $row['msg']; ?></td>
+                                                                                    <td><?php echo $row['location']; ?></td>
+
+
+                                                                              </tr>
+
+                                                                        <?php }
+
+                                                                        ?>
+                                                                  </tbody>
+                                                            </table>
+
+                                                      </div>
+
+                                                </div>
                                           </div>
+
                                     </div>
+                              </div>
                         </div>
 
                         <div class="content customerpage in-active">
@@ -227,14 +227,25 @@ session_start();
                                                                   <td>
                                                                         <form action="update_user.php" method="post">
                                                                               <input type="hidden" name="change_id" value="<?php echo $row['id']; ?>">
-                                                                              <button class="small_button" type="submit" name="change_btn" class="btn_btn_danger btn btn-info">Verify</button>
+                                                                              <button class="small_button" type="submit" name="change_btn">Verify</button>
                                                                         </form>
                                                                         <br>
                                                                         <form action="delete_user.php" method="POST">
                                                                               <input type="hidden" name="delete_id" value="<?php echo $row['id']; ?>">
-                                                                              <button class="small_button" type="submit" name="delete_btn" class="btn_btn_danger btn btn-info">Delete</button>
+                                                                              <button class="small_button" type="submit" name="delete_btn">Delete</button>
+                                                                        </form>
+                                                                        <br>
+                                                                        <form action="mail.php" method="post">
+                                                                              <input name="email" id="email" type="hidden" value="<?php echo $row['email'] ?>">
+                                                                              <button class="small_button" type="submit" name="mail_btn" id="mail_btn">Mail</button>
+
                                                                         </form>
                                                                   </td>
+
+
+
+
+
                                                             </tr>
 
                                                       <?php } ?>
