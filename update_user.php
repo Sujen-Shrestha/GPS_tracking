@@ -3,7 +3,7 @@
 <?php
 session_start();
 include 'database.php';
-if (isset($_POST['change_btn'])) {
+if (isset($_POST['mail_btn'])) {
       $id = $_POST['change_id'];
       $query = "UPDATE usertable set status = 1 WHERE id = $id";
       $query_run = mysqli_query($con, $query);

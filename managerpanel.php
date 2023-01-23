@@ -237,7 +237,7 @@ session_start();
                                                                         <br>
                                                                         <form action="mail.php" method="post">
                                                                               <input name="email" id="email" type="hidden" value="<?php echo $row['email'] ?>">
-                                                                              <button class="small_button" type="submit" name="mail_btn" id="mail_btn">Mail</button>
+                                                                              <button class="small_button" type="submit" name="mail_btn" id="mail_btn">Confirmation email</button>
 
                                                                         </form>
                                                                   </td>
