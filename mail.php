@@ -21,14 +21,14 @@ if (isset($_POST['mail_btn'])) {
       //Set this to true if SMTP host requires authentication to send email
       $mail->SMTPAuth = true;
       //Provide username and password
-      $mail->Username = "sagarrimal87@gmail.com";
-      $mail->Password = 'rnkucnpapuuehoig';
+      $mail->Username = "";//Enter email
+      $mail->Password = '';//enter password
       //If SMTP requires TLS encryption then set it
       $mail->SMTPSecure = "tls";
       //Set TCP port to connect to
       $mail->Port = 587;
-      $mail->From = "sagarrimal87@gmail.com";
-      $mail->FromName = "Sagar Rimal";
+      $mail->From = "";//Enter Email
+      $mail->FromName = "";//Enter Name
       $mail->AddAddress($_POST['email']);
       $mail->isHTML(true);
       $mail->Subject = "Confirmation of account";
