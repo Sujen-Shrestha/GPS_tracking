@@ -1071,3 +1071,8 @@ main .active {
 .pbody_body input:hover{
     border: var(--primary);
 }
+
+.camera{
+    margin: 1rem;
+    margin-left: 35%;
+}

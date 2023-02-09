@@ -15,6 +15,9 @@
       <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400&display=swap" rel="stylesheet">
       <!--for favicon-->
       <link rel="icon" type="images/logo.png" href="images/logo.png">
+      <!--for webcam-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.min.js"></script>
       <title>GPS tracking and Scheduling System</title>
 </head>
 
@@ -96,6 +99,29 @@
                   <input class="un" type="number" name="number" id="number" placeholder="Mobile Number" pattern="(\+977)?[9][6-9]\d{8}" required></input>
                   <span class="span_class" align="center"></span>
                   <input class="un" type="file" placeholder="Upload Citizenship" name="file" id="file" required></input>
+                  <div class="camera" id="my_camera"></div>
+                  <div class="button-wrapper">
+                        <button class="small_button" id="take_snap">Take Snapshot</button>
+                        <input type="hidden" name="image" id="image_input">
+                        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.min.js"></script>
+                        <script language="JavaScript">
+                        Webcam.set({
+                        width: 320,
+                        height: 240,
+                        image_format: 'jpeg',
+                        jpeg_quality: 90,
+                        flip_horiz: true
+                        });
+
+                        Webcam.attach('#my_camera');
+
+                        document.getElementById("take_snap").addEventListener("click", function() {
+                        Webcam.snap( function(data_uri) {
+                              document.getElementById('image_input').value = data_uri;
+                        });
+                        });
+                        </script>
+                  </div>
                   <input class="un" type="password" name="password" id="password" placeholder="Enter your new password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
                   <span class="span_class1" align="center"></span>
                   <div class="login_button_body">
