@@ -28,7 +28,7 @@ session_start();
       <?php include './frontend/menu.php';
       session_name(); ?>
     <div class="paymentbody">
-        <div class="payment_element">
+        <div class="payment_element1">
             <div class="ptitle">
                 <h1 class="question">Basic</h1>
             </div>
@@ -40,7 +40,7 @@ session_start();
                     <li>~Email notification</li>   
                 </ul>
                 
-                <div class="price_body">
+                <div class="price_body1">
                     <?php include 'database.php';
                         $sql = "SELECT * FROM products WHERE id = 1";
                         $result = mysqli_query($con, $sql);
@@ -52,7 +52,7 @@ session_start();
                 </div>
             </div>
         </div>
-        <div class="payment_element">
+        <div class="payment_element1">
             <div class="ptitle">
                     <h1 class="question" >Standard</h1>
                 </div>
@@ -65,7 +65,7 @@ session_start();
                         <li>~Sms notification</li> 
                     </ul>
                     
-                    <div class="price_body">
+                    <div class="price_body1">
                         <?php include 'database.php';
                             $sql = "SELECT * FROM products WHERE id = 2";
                             $result = mysqli_query($con, $sql);
@@ -77,7 +77,7 @@ session_start();
                     </div>
                 </div>
             </div>
-        <div class="payment_element">
+        <div class="payment_element1">
             <div class="ptitle">
                     <h1 class="question" >Plus Ultra</h1>
                 </div>
@@ -91,7 +91,7 @@ session_start();
                         
                     </ul>
                     
-                    <div class="price_body">
+                    <div class="price_body1">
                         <?php include 'database.php';
                             $sql = "SELECT * FROM products WHERE id = 3";
                             $result = mysqli_query($con, $sql);
