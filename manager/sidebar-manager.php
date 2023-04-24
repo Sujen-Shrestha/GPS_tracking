@@ -1,7 +1,8 @@
 <?php
 include "./database.php";
-session_start();
-
+//session_start();
+ini_set('display_errors', 0);
+ini_set('display_notice', 0);
 ?>
 
 <div class="sidebar">

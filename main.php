@@ -1,4 +1,5 @@
 <?php
+ini_set('display_errors', 0);
 include('database.php');
 session_start();
 
@@ -53,7 +54,8 @@ if ($number = $_SESSION['number']) {
                                                       if ($result = mysqli_num_rows($result_1) > 0) {
                                                             // there are results in $result
                                                             echo "YES";
-                                                      } else {
+                                                      } else 
+                                                      {
                                                             // no results
                                                             echo "NO";
                                                       }

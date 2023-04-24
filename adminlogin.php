@@ -1,5 +1,7 @@
 <?php
 session_start();
+ini_set('display_errors', 0);
+ini_set('display_notice', 0);
 $con = mysqli_connect('localhost', 'sagar', 'Iamsagar456@');
 mysqli_select_db($con, 'sagar');
 $number = $_POST['number'];

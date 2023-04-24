@@ -23,7 +23,7 @@
       <?php include './frontend/menu.php';?>
       <div class="login_body">
       <?php
-            session_start();
+           // session_start();
             if (isset($_GET['error'])) {
                   if ($_GET['error'] == "invalidadminid") {
                         echo "<br><br><font color='red'><p align='center'>Incorrect Credentials</p></font>";

@@ -1,7 +1,7 @@
 <!--Admin ko sidebar ko part ko code-->
 <?php
 include "./database.php";
-session_start();
+//session_start();
 
 ?>
 

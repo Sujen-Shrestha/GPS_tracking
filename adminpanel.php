@@ -1,6 +1,8 @@
 <?php
 include('database.php');
 session_start();
+ini_set('display_errors', 0);
+ini_set('display_notice', 0);
 ?>
 <?php if ($_SESSION['role'] == 'super admin') {
 ?>
